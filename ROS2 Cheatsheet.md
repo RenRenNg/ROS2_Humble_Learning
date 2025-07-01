@@ -167,4 +167,4 @@ ros2 topic info /turtle1\_cmd_vel > look at Type section > geometry_msgs\_msg\_T
 Import the msg to draw\_circle file
 
 #### **Adding dependencies**
-package.xml file > below "<\depend>rclpy<\depend>" >add "<\_depend>geometry_msgs<\_depend>"
+package.xml file > below "<depend>rclpy<\depend>" >add "<depend>geometry_msgs<\_depend>"
