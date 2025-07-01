@@ -129,7 +129,7 @@ Edit my\_first\_node.py string text > save > ros2 run my\_robot\_controller\_nod
 
 cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > touch draw_circle.py > chmod +x draw_circle.py
 
-#### **Inside my\_first\_node.py**
+#### **Inside draw\_circle.py**
 
 ```python
 #!/usr/bin/env python3
@@ -160,3 +160,11 @@ def main(args=None):
 if __name__ == '__main__': #directly execute file from the terminal
     main()
 ```
+
+#### **Getting the msg to publish**
+ros2 topic list > look for /turtle1\_cmd_vel
+ros2 topic info /turtle1\_cmd_vel > look at Type section > geometry_msgs\_msg\_Twist
+Import the msg to draw\_circle file
+
+#### **Adding dependencies**
+package.xml file > below "<depend>rclpy</depend>" >add "<depend>geometry_msgs</depend>"
