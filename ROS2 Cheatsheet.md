@@ -148,9 +148,13 @@ cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > touch draw_circl
 
 #### **Inside my\_first\_node.py**
 
+```python
 #!/usr/bin/env python3
+
 import rclpy
+
 from rclpy.node import Node
+
 from geometry_msgs.msg import Twist
 
 class DrawCircleNode(Node):
@@ -176,3 +180,4 @@ def main(args=None):
 
 if __name__ == '__main__': #directly execute file from the terminal
     main()
+```
