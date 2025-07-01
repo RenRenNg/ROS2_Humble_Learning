@@ -75,9 +75,7 @@ cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > touch my\_first\
 #### **Inside my\_first\_node.py**
 
 \#!/usr/bin/env python3
-
 import rclpy
-
 from rclpy.node import Node
 
 
