@@ -74,55 +74,38 @@ cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > touch my\_first\
 
 #### **Inside my\_first\_node.py**
 
-\#!/usr/bin/env python3
+```python
+#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
 
-
-
 class MyNode(Node):
 
+    def __init__(self):
+        super().__init__("first_node") #node name
+        #self.get_logger().info("Hello from ROS2!!!")
+        self.counter_ = 0 # Adds attribute
+        self.create_timer(1.0, self.timer_callback)
 
-
-
-
-    def \_\_init\_\_(self):
-
-        super().\_\_init\_\_("first\_node") #node name
-
-        self.get\_logger().info("Hello from ROS2")
-
-
-
+    def timer_callback(self):
+        self.get_logger().info("Hello " + str(self.counter_))
+        self.counter_ += 1
 
 
 def main(args=None):
+    #start ros2 comms
+    rclpy.init(args=args)
+    
+    node = MyNode()
+    
+    rclpy.spin(node) #kept alive until it is killed
+    
+    #shutdown ros2 comms
+    rclpy.shutdown
 
-    #start ros2 comms
-
-    rclpy.init(args=args)
-
- 
-
-    node = MyNode()
-
- 
-
-    rclpy.spin(node) #kept alive until it is killed
-
- 
-
-    #shutdown ros2 comms
-
-    rclpy.shutdown
-
-
-
-if \_\_name\_\_ == '\_\_main\_\_': #directly execute file from the terminal
-
-    main()
-
----
+if __name__ == '__main__': #directly execute file from the terminal
+    main()
+```
 
 cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > python3 my\_first\_node.py
 
@@ -150,13 +133,9 @@ cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > touch draw_circl
 
 ```python
 #!/usr/bin/env python3
-
 import rclpy
-
 from rclpy.node import Node
-
 from geometry_msgs.msg import Twist
-
 class DrawCircleNode(Node):
 
     def __init__(self):
