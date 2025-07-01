@@ -174,3 +174,11 @@ ros2 interface show geometry_msgs/msg/Twist > see the inputs of the msg > put th
 
 #### **Adding console script**
 In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "draw_circle = my_robot_controller.draw_circle:main"'
+
+#### **Building and running the publisher**
+cd ~/ros_ws > colcon build --symlink-install
+ros2 run turtlesim turtlesim_node
+ros2 run my_robot_controller draw_circle
+
+### **Write a ROS2 Subscriber with Python**
+
