@@ -6,9 +6,13 @@ ros2 node list # show list of nodes
 
 ros2 node info \[node name] # show info of the node (like subscriber and publisher)
 
-ros2 topic list
+ros2 topic list # show list of topics
 
-ros2 topic info 
+ros2 topic info \[topic name] # show info of the topic like the msg, publisher and subscriber
+
+ros2 interface show \[msg type] # show what the msg contains (e.g. linear x.y.z)
+
+ros2 topic echo \[topic name] # show the print result of the topic 
 
 ### **Create and setup a workspace**
 
