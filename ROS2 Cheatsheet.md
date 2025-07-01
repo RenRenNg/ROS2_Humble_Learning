@@ -163,7 +163,7 @@ if __name__ == '__main__': #directly execute file from the terminal
 
 #### **Getting the msg to publish**
 ros2 topic list > look for /turtle1\_cmd_vel
-ros2 topic info /turtle1\_cmd_vel > look at Type section > geometry_msgs\_msg\_Twist
+ros2 topic info /turtle1/cmd_vel > look at Type section > geometry_msgs/msg\_Twist
 Import the msg to draw\_circle file
 
 #### **Adding dependencies**
