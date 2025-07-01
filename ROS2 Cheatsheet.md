@@ -167,4 +167,4 @@ ros2 topic info /turtle1/cmd_vel > look at Type section > geometry_msgs/msg/Twis
 Import the msg to draw\_circle file
 
 #### **Adding dependencies**
-package.xml file > below "`<depend>rclpy<depend>`" >add "`<depend>geometry_msgs<depend>`"
+package.xml file > below `<depend>rclpy<depend>` >add `<depend>geometry_msgs<depend>` and `<depend>turtlesim<depend>`
