@@ -6,7 +6,9 @@ ros2 node list # show list of nodes
 
 ros2 node info \[node name] # show info of the node (like subscriber and publisher)
 
+ros2 topic list
 
+ros2 topic info 
 
 ### **Create and setup a workspace**
 
