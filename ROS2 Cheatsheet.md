@@ -142,9 +142,39 @@ ros2 run my\_robot\_controller test\_node
 
 Edit my\_first\_node.py string text > save > ros2 run my\_robot\_controller\_node test\_node > look for the change made
 
+### **Write a ROS2 Publisher with Python**
+
+#### **Create a py file as a publisher**
+
+cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > touch draw_circle.py > chmod +x draw_circle.py
+
+#### **Inside my\_first\_node.py**
+
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import Twist
+
+class DrawCircleNode(Node):
+
+    def __init__(self):
+        super().__init__("draw_circle")
+        self.cmd_vel_pub_ = self.create_publisher(Twist, "/turtle1/cmd_vel", 10)
+        self.timer_ = self.create_timer(0.5, self.send_velocity_command)
+        self.get_logger().info("Draw circle node has been started")
+
+    def send_velocity_command(self):
+        msg = Twist()
+        msg.linear.x = 2.0
+        msg.angular.z = 1.0
+        self.cmd_vel_pub_.publish(msg)
 
 
-### **What is a ROS2 topic**
+def main(args=None):
+    rclpy.init(args=args)
+    node = DrawCircleNode()
+    rclpy.spin(node)
+    rclpy.shutdown()
 
-asd
-
+if __name__ == '__main__': #directly execute file from the terminal
+    main()
