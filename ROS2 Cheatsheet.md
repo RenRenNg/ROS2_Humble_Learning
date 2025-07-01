@@ -140,7 +140,7 @@ class DrawCircleNode(Node):
 
     def __init__(self):
         super().__init__("draw_circle")
-        self.cmd_vel_pub_ = self.create_publisher(Twist, "/turtle1/cmd_vel", 10)
+        self.cmd_vel_pub_ = self.create_publisher(Twist, "/turtle1/cmd_vel", 10) # (msg_type, topic name, queue size)
         self.timer_ = self.create_timer(0.5, self.send_velocity_command)
         self.get_logger().info("Draw circle node has been started")
 
@@ -167,4 +167,6 @@ ros2 topic info /turtle1/cmd_vel > look at Type section > geometry_msgs/msg/Twis
 Import the msg to draw\_circle file
 
 #### **Adding dependencies**
-package.xml file > below `<depend>rclpy<depend>` >add `<depend>geometry_msgs<depend>` and `<depend>turtlesim<depend>`
+package.xml file > below `<depend>rclpy<depend>` > add `<depend>geometry_msgs<depend>` and `<depend>turtlesim<depend>`
+
+
