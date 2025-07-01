@@ -170,7 +170,7 @@ Import the msg to draw\_circle file
 In package.xml file > below `<depend>rclpy<depend>` > add `<depend>geometry_msgs<depend>` and `<depend>turtlesim<depend>`
 
 #### **What input do i need**
-ros2 interface show geometry_msgs/msg/Twist > see the inputs of the msg
+ros2 interface show geometry_msgs/msg/Twist > see the inputs of the msg > put the desired linear and angular velocities to the 'send_velocity_command' function
 
 #### **Adding console script**
 In setup.py file > under entry_points > add ',' if there is an existing node above > new line > add'"draw_circle = my_robot_controller.draw_circle:main"'
