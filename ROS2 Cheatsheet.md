@@ -162,9 +162,9 @@ if __name__ == '__main__': #directly execute file from the terminal
 ```
 
 #### **Getting the msg to publish**
-ros2 topic list > look for /turtle1\_cmd_vel
-ros2 topic info /turtle1/cmd_vel > look at Type section > geometry_msgs/msg/Twist
-Import the msg to draw\_circle file
+ros2 topic list > look for /turtle1\_cmd_vel  
+ros2 topic info /turtle1/cmd_vel > look at Type section > geometry_msgs/msg/Twist  
+Import the msg to draw\_circle file  
 
 #### **Adding dependencies**
 In package.xml file > below `<depend>rclpy<depend>` > add `<depend>geometry_msgs<depend>` and `<depend>turtlesim<depend>`
@@ -176,13 +176,13 @@ ros2 interface show geometry_msgs/msg/Twist > see the inputs of the msg > put th
 In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "draw_circle = my_robot_controller.draw_circle:main"'
 
 #### **Building and running the publisher**
-cd ~/ros_ws > colcon build --symlink-install
-ros2 run turtlesim turtlesim_node
-ros2 run my_robot_controller draw_circle
+cd ~/ros_ws > colcon build --symlink-install  
+ros2 run turtlesim turtlesim_node  
+ros2 run my_robot_controller draw_circle  
 
 ### **Write a ROS2 Subscriber with Python**
 #### **Finding the msg type, topic name and what is inside the msg** 
-rqtgraph > find the \[topic name] published of interest 
-ros2 topic echo /turtle\_pose # see what are we getting
-ros2 topic info /turtle\_pose % get msg type
-ros2 interface show /turtle\_pose # get what is inside the msg
+rqtgraph > find the \[topic name] published of interest  
+ros2 topic echo /turtle\_pose # see what are we getting  
+ros2 topic info /turtle\_pose % get msg type  
+ros2 interface show /turtle\_pose # get what is inside the msg  
