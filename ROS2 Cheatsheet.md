@@ -16,6 +16,16 @@ ros2 topic echo \[topic name] # show the print result of the topic
 
 ros2 service list # show list of services
 
+ros2 node list # show list of nodes
+
+ros2 service type \[service name] # show type of service node
+
+ros2 interface show \[service type] # show info the type of service request and reponse 
+
+ros2 run \[package name] \[py file] # running file in ros2 command
+
+ros2 service call \[service name] \[service type] # calling to input request
+
 ### **Create and setup a workspace**
 
 #### Install colcon (1 time only)
