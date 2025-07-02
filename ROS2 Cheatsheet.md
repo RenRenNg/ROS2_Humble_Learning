@@ -18,55 +18,37 @@ ros2 topic echo \[topic name] # show the print result of the topic
 
 #### Install colcon (1 time only)
 
-sudo apt update
-
-sudo apt install python3-colcon-common-extensions
+sudo apt update  
+sudo apt install python3-colcon-common-extensions  
 
 #### Source colcon (1 time only)
 
-gedit ~/.bashrc
-
-add > source /usr/share/colcon\_argcomplete/hook/colcon-argcomplete.bash (below source ros2) > save
+gedit ~/.bashrc  
+add > source /usr/share/colcon\_argcomplete/hook/colcon-argcomplete.bash (below source ros2) > save  
 
 #### Making workspace
 
-cd ~
-
-mkdir ros2\_ws
-
-cd ros2\_ws/
-
-mkdir src
-
-In ros2 ws directory > colcon build
-
-ls > should have build install log src
-
-cd install
-
-ls > look for setup.bash
+cd ~  
+mkdir ros2\_ws  
+cd ros2\_ws/  
+mkdir src  
+In ros2 ws directory > colcon build  
+ls > should have build install log src  
+cd install  
+ls > look for setup.bash  
 
 #### Source setup.bash
 
-gedit ~/.bashrc
-
+gedit ~/.bashrc  
 add > source ~/ros2\_ws/install/setup.bash (below colcon source)> save
-
-
 
 ### **Create a ROS2 Python Package**
 
-cd ros2\_ws/src
-
-ros2 pkg create my\_robot\_controller --build-type ament\_python --dependencies rclpy
-
-cd ~/ros2\_ws/src code . (open folder in vs studio)
-
-cd ~/ros2\_ws > colcon build
-
+cd ros2\_ws/src  
+ros2 pkg create my\_robot\_controller --build-type ament\_python --dependencies rclpy  
+cd ~/ros2\_ws/src code . (open folder in vs studio)  
+cd ~/ros2\_ws > colcon build  
 cd ~/ros2\_ws/install > ls > look for my\_robot\_controller (Able to use ros2 commandline tools like ros2 run)
-
-
 
 ### **Create a ROS2 Node with Python and OOP**
 
@@ -106,21 +88,17 @@ def main(args=None):
 if __name__ == '__main__': #directly execute file from the terminal
     main()
 ```
-
 cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > python3 my\_first\_node.py
 
 #### **How to use with ros2 commands**
 
-setup.py > under entry\_points > under console\_scripts array > "test\_node = my\_robot\_controller.my\_first\_node:main" (\[executable name] = \[file name])> save
-
+setup.py > under entry\_points > under console\_scripts array > "test\_node = my\_robot\_controller.my\_first\_node:main" (\[executable name] = \[file name])> save  
 cd ~/ros2\_ws > colcon build > source ~/.bashrc > ros2 run my\_robot\_controller test\_node
 
 #### **How to skip the colcon build if i update the file**
 
-cd ~/ros2\_ws > colcon build --symlink install > source ~/.bashrc
-
-ros2 run my\_robot\_controller test\_node
-
+cd ~/ros2\_ws > colcon build --symlink install > source ~/.bashrc  
+ros2 run my\_robot\_controller test\_node  
 Edit my\_first\_node.py string text > save > ros2 run my\_robot\_controller\_node test\_node > look for the change made
 
 ### **Write a ROS2 Publisher with Python**
