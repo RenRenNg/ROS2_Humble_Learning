@@ -26,6 +26,8 @@ ros2 run \[package name] \[py file] # running file in ros2 command
 
 ros2 service call \[service name] \[service type] # calling to input request
 
+ros2 topic hz \{topic name] # get the hz of the topic (how messages per second)
+
 ### **Create and setup a workspace**
 
 #### Install colcon (1 time only)
@@ -180,7 +182,7 @@ ros2 interface show /turtle\_pose # get what is inside the msg
 #### **Create a py file as a subscriber**  
 cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > touch pose_subscriber.py > chmod +x pose_subsriber.py  
 
-#### **Inside pose\_subscriber.py**
+#### **Inside pose/subscriber.py**
 ```python
 #!/usr/bin/env python3
 import rclpy
@@ -223,7 +225,7 @@ ros2 run my_robot_controller pose_subscriber
 Create a node that subscribe to /turtle1\_pose and publish to /turle1\_cmd_vel  
 cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > touch turtle_controller.py > chmod +x turtle_controller.py  
 
-#### **Inside pose\_subscriber.py**  
+#### **Inside pose_subscriber.py**  
 ```python
 #!/usr/bin/env python3
 import rclpy
@@ -279,3 +281,89 @@ ros2 interface show turtlesim/srv\_SetPen # show requests and responses
 ros2 service call /turtle1\_set_pen turtlesim/srv\_SetPen "{'r': 255, 'g': 0, 'b': 0, 'width': 3, 'off': 0}"
 
 ### **Write a ROS2 Service Client with Python**  
+Going to change the colour of the turtle's trail when it red on the right and green on the left
+
+#### **Inside turtle_controller.py**
+```pyhton
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import Twist
+from turtlesim.msg import Pose
+from turtlesim.srv import SetPen
+from functools import partial
+
+class TurtleControllerNode(Node):
+
+    def __init__(self):
+        super().__init__("turtle_controller")
+        self.previous_x_ = 0.0
+        self.cmd_vel_publisher_ = self.create_publisher(Twist, "/turtle1/cmd_vel", 10)
+        self.pose_subscriber_ = self.create_subscription(
+            Pose, "/turtle1/pose", self.pose_callback, 10)
+        self.get_logger().info("Turle controller has started.")
+
+    def pose_callback(self, pose: Pose): # when you receive a pose we send a cmd to go basically get subscribe and then publish
+        cmd = Twist()
+        if pose.x > 9.0 or pose.x < 2.0 or pose.y > 9.0 or pose.y < 2.0: # if turtle close to wall
+            cmd.linear.x = 1.0
+            cmd.angular.z = 0.9
+        else: 
+            cmd.linear.x = 5.0
+            cmd.angular.z = 0.0
+        self.cmd_vel_publisher_.publish(cmd)
+
+        #Problem with this method: will be called so many times that the application will lag
+        #Another way to only call the service when needed and not all the time to reduce load
+        # if pose.x > 5.5:
+        #     self.get_logger().info("Set colour to red")
+        #     self.call_set_pen_service(255,0,0,3,0)
+        # else:
+        #     self.get_logger().info("Set colour to green")
+        #     self.call_set_pen_service(0,255,0,3,0)
+
+        #add more condition to reduce the need to call it constantly and only when required
+        if pose.x > 5.5 and self.previous_x_ <= 5.5:
+            self.previous_x_ = pose.x
+            self.get_logger().info("Set colour to red")
+            self.call_set_pen_service(255,0,0,3,0)
+        elif pose.x <= 5.5 and self.previous_x_ > 5.5:
+            self.previous_x_ = pose.x
+            self.get_logger().info("Set colour to green")
+            self.call_set_pen_service(0,255,0,3,0)
+
+    #Template for service cilent 
+    def call_set_pen_service(self, r, g, b, width, off):
+        cilent = self.create_client(SetPen, "/turtle1/set_pen")
+        while not cilent.wait_for_service(1.0): # if service call not availabe for 1 second
+            self.get_logger().warn("Waiting for service to be available...")
+        
+        request = SetPen.Request()
+        request.r = r
+        request.b = b
+        request.g = g
+        request.width = width
+        request.off = off
+
+        future = cilent.call_async(request) # send request to service and create a future object
+        future.add_done_callback(partial(self.callback_set_pen)) 
+
+    def callback_set_pen(self, future):
+        try:
+            response = future.result()
+        except Exception as e:
+            self.get_logger().error("Service call failed: %r" % (e,))
+    #-------------------------------
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = TurtleControllerNode()
+    rclpy.spin(node)
+    rclpy.shutdown()
+
+if __name__ == '__main__': #directly execute file from the terminal
+    main()
+```  
+#### **Running turtle_controller with turtlesim_node**  
+ros2 run turtlesim turtlesim_node
+ros2 run my_robot_controller turtle_controller
