@@ -164,3 +164,9 @@ rqtgraph > find the \[topic name] published of interest
 ros2 topic echo /turtle\_pose # see what are we getting  
 ros2 topic info /turtle\_pose % get msg type  
 ros2 interface show /turtle\_pose # get what is inside the msg  
+
+#### **Create a py file as a publisher**  
+cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > touch pose_subscriber.py > chmod +x pose_subsriber.py  
+
+#### **Inside pose\_subscriber.py**
+
