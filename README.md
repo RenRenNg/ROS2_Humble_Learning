@@ -1,9 +1,8 @@
 # ROS2_Humble_Learning
 
 This repo purpose contains my learning journey on ROS2 Humble.  
-Source: https://youtu.be/Gg25GfA456o?si=s1npZHG1ayKpQYCc 
 
-This journey will cover:
+This ROS2 journey will cover:
 1. Installation of ROS2 Humble
 2. Starting your first ROS node
 3. Creating and setting up ROS2 workspace and appropirate sourcing practice
@@ -15,3 +14,5 @@ This journey will cover:
 9. Createa close loop system with Publisher and Subscriber
 10. What is ROS2 Service
 11. Write a ROS2 Service Client with python
+
+Source: https://youtu.be/Gg25GfA456o?si=s1npZHG1ayKpQYCc 
