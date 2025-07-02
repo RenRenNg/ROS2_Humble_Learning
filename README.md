@@ -18,4 +18,14 @@ This ROS2 journey will cover:
 Source: https://youtu.be/Gg25GfA456o?si=s1npZHG1ayKpQYCc 
 
 URDF section will cover:  
+1. Setting up URDF files
+2. Create and visualise the first link
+3. Material tags
+4. Add a link and a joint
+5. Visualise and introspect TFs
+6. Add left wheel
+7. Add right wheel
+8. Add caster wheel
+9. Add base _footprint
+10. Final TF tree  
 Source: https://www.youtube.com/watch?v=dZ_CyyEvBE0&list=PL2UjcOn0MjffcDh_dUO8EbAlwLfJOdF1b&index=2
