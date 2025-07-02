@@ -145,7 +145,7 @@ ros2 topic info /turtle1/cmd_vel > look at Type section > geometry_msgs/msg/Twis
 Import the msg to draw\_circle file  
 
 #### **Adding dependencies**
-In package.xml file > below `<depend>rclpy<depend>` > add `<depend>geometry_msgs<depend>` and `<depend>turtlesim<depend>`
+In package.xml file > below `<depend>rclpy<depend>` > add `<depend>geometry_msgs<depend>`
 
 #### **What input do i need**
 ros2 interface show geometry_msgs/msg/Twist > see the inputs of the msg > put the desired linear and angular velocities to the 'send_velocity_command' function
@@ -169,4 +169,32 @@ ros2 interface show /turtle\_pose # get what is inside the msg
 cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > touch pose_subscriber.py > chmod +x pose_subsriber.py  
 
 #### **Inside pose\_subscriber.py**
+```python
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from turtlesim.msg import Pose
 
+class PoseSubscriberNode(Node):
+
+    def __init__(self):
+        super().__init__("pose_subscriber")
+        self.pose_subscriber_ = self.create_subscription(
+            Pose, "/turtle1/pose", self.pose_callback, 10)
+
+    def pose_callback(self, msg: Pose): # make msg default to Pose
+        #self.get_logger().info(str(msg)) # get all the msg
+        self.get_logger().info("("+ str(msg.x) + "," + str(msg.y) + ")") # access certain coordinates
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = PoseSubscriberNode()
+    rclpy.spin(node)
+    rclpy.shutdown()
+
+if __name__ == '__main__': #directly execute file from the terminal
+    main()
+```
+
+#### **Adding dependencies**
+In package.xml file > below `<depend>geometry_msgs<depend>` > add  `<depend>turtlesim<depend>`
