@@ -1,6 +1,6 @@
 # ROS2_Humble_Learning
 
-This repo purpose contains my learning journey on ROS2 Humble.  
+This repo purpose contains my learning journey on ROS2 Humble > URDF > Actions > Navigation.  
 
 This ROS2 journey will cover:
 1. Installation of ROS2 Humble
