@@ -198,3 +198,6 @@ if __name__ == '__main__': #directly execute file from the terminal
 
 #### **Adding dependencies**
 In package.xml file > below `<depend>geometry_msgs<depend>` > add  `<depend>turtlesim<depend>`
+
+#### **Adding console script**
+In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "pose_subscriber = my_robot_controller.pose_subscriber:main"
