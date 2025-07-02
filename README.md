@@ -16,3 +16,6 @@ This ROS2 journey will cover:
 11. Write a ROS2 Service Client with python
 
 Source: https://youtu.be/Gg25GfA456o?si=s1npZHG1ayKpQYCc 
+
+URDF section will cover:
+Source: https://www.youtube.com/watch?v=dZ_CyyEvBE0&list=PL2UjcOn0MjffcDh_dUO8EbAlwLfJOdF1b&index=2
