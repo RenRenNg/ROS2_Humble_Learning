@@ -1,6 +1,6 @@
 ### **Tools**
 
-rqt\_graph # network of ros2 communications running
+rqt\_graph # network of ros2 communications running (will not show services)
 
 ros2 node list # show list of nodes
 
@@ -268,4 +268,14 @@ cd ~/ros_ws > colcon build --symlink-install
 ros2 run turtlesim turtlesim_node  
 ros2 run my_robot_controller turtle_controller  
 
-### **What is ROS2 Service**
+### **What is ROS2 Service**  
+Can only have one service but as many cilents as you want
+
+#### **Changing colour of the turtle's trail**  
+ros2 run turtlesim turtlesim+_node  
+ros2 service list  #show list of service 
+ros2 service type /turtle1\_set_pen  # show service type
+ros2 interface show turtlesim/srv\_SetPen # show requests and responses  
+ros2 service call /turtle1\_set_pen turtlesim/srv\_SetPen "{'r': 255, 'g': 0, 'b': 0, 'width': 3, 'off': 0}"
+
+### **Write a ROS2 Service Client with Python**  
