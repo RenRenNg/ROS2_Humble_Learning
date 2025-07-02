@@ -165,7 +165,7 @@ ros2 topic echo /turtle\_pose # see what are we getting
 ros2 topic info /turtle\_pose % get msg type  
 ros2 interface show /turtle\_pose # get what is inside the msg  
 
-#### **Create a py file as a publisher**  
+#### **Create a py file as a subscriber**  
 cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > touch pose_subscriber.py > chmod +x pose_subsriber.py  
 
 #### **Inside pose\_subscriber.py**
@@ -208,3 +208,50 @@ ros2 run turtlesim turtlesim_node
 ros2 run my_robot_controller pose_subscriber  
 
 ### **Create a Closed Loop System with a Publisher and a Subscriber**
+Create a node that subscribe to /turtle1\_pose and publish to /turle1\_cmd_vel  
+cd ~/ros2\_ws/src/my\_robot\_controller/my\_robot\_controller > touch turtle_controller.py > chmod +x turtle_controller.py  
+
+#### **Inside pose\_subscriber.py**  
+```python
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import Twist
+from turtlesim.msg import Pose
+
+class TurtleControllerNode(Node):
+
+    def __init__(self):
+        super().__init__("turtle_controller")
+        self.cmd_vel_publisher_ = self.create_publisher(Twist, "/turtle1/cmd_vel", 10)
+        self.pose_subscriber_ = self.create_subscription(
+            Pose, "/turtle1/pose", self.pose_callback, 10)
+        self.get_logger().info("Turle controller has started.")
+
+    def pose_callback(self, pose: Pose): # when you receive a pose we send a cmd to go basically get subscribe and then publish
+        cmd = Twist()
+        if pose.x > 9.0 or pose.x < 2.0 or pose.y > 9.0 or pose.y < 2.0: # if turtle close to wall
+            cmd.linear.x = 1.0
+            cmd.angular.z = 0.9
+        else: 
+            cmd.linear.x = 5.0
+            cmd.angular.z = 0.0
+        self.cmd_vel_publisher_.publish(cmd)
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = TurtleControllerNode()
+    rclpy.spin(node)
+    rclpy.shutdown()
+
+if __name__ == '__main__': #directly execute file from the terminal
+    main()
+```  
+#### **Adding console script**
+In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "turtle_controller = my_robot_controller.turtle_controller:main"
+
+#### **Building and running the publisher**
+cd ~/ros_ws > colcon build --symlink-install  
+ros2 run turtlesim turtlesim_node  
+ros2 run my_robot_controller turtle_controller  
