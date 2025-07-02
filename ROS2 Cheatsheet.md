@@ -284,7 +284,7 @@ ros2 service call /turtle1\_set_pen turtlesim/srv\_SetPen "{'r': 255, 'g': 0, 'b
 Going to change the colour of the turtle's trail when it red on the right and green on the left
 
 #### **Inside turtle_controller.py**
-```pyhton
+```python
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
