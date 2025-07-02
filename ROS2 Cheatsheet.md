@@ -14,6 +14,8 @@ ros2 interface show \[msg type] # show what the msg contains (e.g. linear x.y.z)
 
 ros2 topic echo \[topic name] # show the print result of the topic 
 
+ros2 service list # show list of services
+
 ### **Create and setup a workspace**
 
 #### Install colcon (1 time only)
@@ -255,3 +257,5 @@ In setup.py file > under entry_points > add "," behind an exising node if there 
 cd ~/ros_ws > colcon build --symlink-install  
 ros2 run turtlesim turtlesim_node  
 ros2 run my_robot_controller turtle_controller  
+
+### **What is ROS2 Service**
