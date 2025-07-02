@@ -151,7 +151,7 @@ In package.xml file > below `<depend>rclpy<depend>` > add `<depend>geometry_msgs
 ros2 interface show geometry_msgs/msg/Twist > see the inputs of the msg > put the desired linear and angular velocities to the 'send_velocity_command' function
 
 #### **Adding console script**
-In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "draw_circle = my_robot_controller.draw_circle:main"'
+In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "draw_circle = my_robot_controller.draw_circle:main"
 
 #### **Building and running the publisher**
 cd ~/ros_ws > colcon build --symlink-install  
@@ -201,3 +201,10 @@ In package.xml file > below `<depend>geometry_msgs<depend>` > add  `<depend>turt
 
 #### **Adding console script**
 In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "pose_subscriber = my_robot_controller.pose_subscriber:main"
+
+#### **Building and running the publisher**
+cd ~/ros_ws > colcon build --symlink-install  
+ros2 run turtlesim turtlesim_node  
+ros2 run my_robot_controller pose_subscriber  
+
+
