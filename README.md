@@ -1,6 +1,6 @@
 # ROS2_Humble_Learning
 
-This repo purpose contains my learning journey on ROS2 Humble
+This repo purpose contains my learning journey on ROS2 Humble.  
 Source: https://youtu.be/Gg25GfA456o?si=s1npZHG1ayKpQYCc 
 
 This journey will cover:
