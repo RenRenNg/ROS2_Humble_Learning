@@ -9,7 +9,7 @@ Blue = z-axis, Yaw
 touch my_robot.urdf  
 code my_robot.urdf  # open code editor  
 #### **Inside my_robot.urdf**  
-```python
+```xml
 <?xml version="1.0"?>
 <robot name="my_robot">
     <link name="base_link">
