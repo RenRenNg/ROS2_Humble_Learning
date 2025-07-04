@@ -1,9 +1,9 @@
 ### **Rviz2 notes**
 #### **Axes**  
 Right hand rule, Right hand grup rule  
-Red = x-axis, Roll
-Green = y-axis, Pitch
-Blue = z-axis, Yaw
+Red = x-axis, Roll  
+Green = y-axis, Pitch  
+Blue = z-axis, Yaw  
 
 ### **Setup URDF file**
 touch my_robot.urdf  
