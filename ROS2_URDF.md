@@ -30,7 +30,7 @@ sudo apt install ros-humble-urdf
 source /opt/ros/humble/setup.bash  
 ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf
 
-### **Adding colours**
+### **Defining & Assigning colours**
 ```xml
 <?xml version="1.0"?>
 <robot name="my_robot">
