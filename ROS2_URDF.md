@@ -104,3 +104,60 @@ Useful tip:
             <material name="grey"/>
         </visual>
     </link>
+
+    <joint name="base_left_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_wheel"/>
+        <origin xyz="-0.15 0.225 0" rpy="0 0 0" />
+        <axis xyz="0 1 0"/>
+    </joint>
+```
+#### **Right Wheel**
+```xml
+    <link name="right_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+            <origin xyz="0.0 0 0" rpy="1.57 0 0" />
+            <material name="grey"/>
+        </visual>
+    </link>
+
+    <joint name="base_right_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="right_wheel"/>
+        <origin xyz="-0.15 -0.225 0" rpy="0 0 0" />
+        <axis xyz="0 1 0"/>
+    </joint>
+```
+#### **Caster Wheel**
+```xml
+    <link name="caster_wheel">
+        <visual>
+            <geometry>
+                <sphere radius="0.05"/>
+            </geometry>
+            <origin xyz="0.0 0 0" rpy="0 0 0" />
+            <material name="grey"/>
+        </visual>
+    </link>
+
+    <joint name="base_caster_wheel_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="caster_wheel"/>
+        <origin xyz="0.2 0 -0.05" rpy="0 0 0" />
+    </joint>
+```
+#### **Base Footprint**
+```xml
+    <link name="base_footprint"/>
+    <joint name="base_joint" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0.1" rpy="0 0 0" />
+    </joint>
+```
+
+
+
