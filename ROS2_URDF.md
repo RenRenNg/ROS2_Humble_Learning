@@ -69,6 +69,10 @@ ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf
 ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf  
 
 ### **Adding a link and joint**  
+Useful tip:  
+1. Fix the origin of the point
+2. Fix the axis
+3. Fix origin of the link if needed
 #### **Lidar** 
 ```xml
     <link name="lidar_link">
@@ -88,5 +92,15 @@ ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf
         <!-- Change this to fix where it sit on the robot. If not enough change the link origins. -->
         <origin xyz="0.0 0 0.225" rpy="0 0 0" />
     </joint>
-```
-
+```  
+#### **Left Wheel**
+```xml
+    <link name="left_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+            <origin xyz="0.0 0 0" rpy="1.57 0 0" />
+            <material name="grey"/>
+        </visual>
+    </link>
