@@ -152,6 +152,7 @@ Useful tip:
 #### **Base Footprint**
 ```xml
     <link name="base_footprint"/>
+
     <joint name="base_joint" type="fixed">
         <parent link="base_footprint"/>
         <child link="base_link"/>
