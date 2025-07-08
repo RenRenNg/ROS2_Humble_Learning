@@ -1,3 +1,7 @@
+### **Rviz2 Tools**  
+https://wiki.ros.org/urdf/XML/link # Useful documentation about URDF
+ros2 run tf2_tools view_frames # produce a pdf of the list of transform between links
+
 ### **Rviz2 notes**
 #### **Axes**  
 Right hand rule, Right hand grup rule  
@@ -62,4 +66,27 @@ ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf
     </link>
 </robot>
 ```  
-ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf
+ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf  
+
+### **Adding a link and joint**  
+#### **Lidar** 
+```xml
+    <link name="lidar_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+            <origin xyz="0.0 0 0" rpy="0 0 0" />
+            <material name="white"/>
+        </visual>
+    </link>
+
+    <!-- Add relationship between the links -->
+    <joint name="base_lidar_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="lidar_link"/>
+        <!-- Change this to fix where it sit on the robot. If not enough change the link origins. -->
+        <origin xyz="0.0 0 0.225" rpy="0 0 0" />
+    </joint>
+```
+
