@@ -39,6 +39,14 @@ int64 current_number
 ```
 
 #### **Adding dependencies**  
+  <buildtool_depend>ament_cmake</buildtool_depend>
+```xml
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
+```
+  <test_depend>ament_lint_auto</test_depend>
+
 
 
 #### **Axes**  
