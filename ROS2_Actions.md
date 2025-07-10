@@ -26,7 +26,7 @@ code .
 Create new file > CountUntil.action
 
 #### **Inside CountUntil.action**
-```cpp
+```plaintext
 #Goal
 int64 target_number
 float64 period
