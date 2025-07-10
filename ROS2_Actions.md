@@ -14,7 +14,30 @@ Cilent can be multiple but only one action server
 
 
 ### **Create an Action definition**
-#### **Create Workspace**
-Follow instructions from 
+#### **Create Workspace (ros2_ws)**
+Follow instructions from ROS2 cheatsheet file.  
+cd ~/ros2_ws/src  
+rm -r include/ src/  
+mkdir msg srv action  
+cd ..  
+code .  
+
+#### **Inside action file**
+Create new file > CountUntil.action
+
+#### **Inside CountUntil.action**
+```cpp
+#Goal
+int64 target_number
+float64 period
+---
+#Result
+int64 reached_number
+---
+#Feedback
+int64 current_number
+```
+
+
 #### **Axes**  
 
