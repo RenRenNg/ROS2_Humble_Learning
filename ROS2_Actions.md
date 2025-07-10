@@ -26,7 +26,7 @@ code .
 Create new file > CountUntil.action
 
 #### **Inside CountUntil.action**
-```plaintext
+```yaml
 #Goal
 int64 target_number
 float64 period
