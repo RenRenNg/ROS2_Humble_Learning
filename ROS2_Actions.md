@@ -40,7 +40,8 @@ int64 current_number
 
 #### **Adding dependencies**  
 Inside package.xml   
-Between <buildtool_depend>ament_cmake</buildtool_depend> & <test_depend>ament_lint_auto</test_depend> add  
+Between <buildtool_depend>ament_cmake</buildtool_depend> & <test_depend>ament_lint_auto</test_depend>   
+Add the following:  
 ```xml
   <buildtool_depend>rosidl_default_generators</buildtool_depend>
   <exec_depend>rosidl_default_runtime</exec_depend>
