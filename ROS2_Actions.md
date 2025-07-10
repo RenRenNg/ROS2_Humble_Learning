@@ -39,7 +39,7 @@ int64 current_number
 ```
 
 #### **Adding dependencies**  
-Inside package.xml   
+#### **Inside package.xml**  
 Between <buildtool_depend>ament_cmake</buildtool_depend> & <test_depend>ament_lint_auto</test_depend>   
 Add the following:  
 ```xml
@@ -47,6 +47,28 @@ Add the following:
   <exec_depend>rosidl_default_runtime</exec_depend>
   <member_of_group>rosidl_interface_packages</member_of_group>
 ```
+
+#### **Inside CMakeLists.txt**  
+```python
+cmake_minimum_required(VERSION 3.8)
+project(my_robot_interfaces)
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+# find dependencies
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+rosidl_interface_packages(${PROJECT_NAME}
+  "action/CountUntil.action"
+)
+
+ament_export_dependencies(rosidl_default_runtime)
+
+ament_package()
+```  
 
 
 #### **Axes**  
