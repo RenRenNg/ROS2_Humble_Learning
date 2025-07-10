@@ -72,7 +72,11 @@ ament_package()
 
 #### **Building**  
 cd ~/ros2_ws
-colcon build --packages-select my_robot_interfaces
+colcon build --packages-select my_robot_interfaces  
+source ~/.bashrc  
+ros2 interface show my_robot_interfaces/action/CountUntil  
+Check you can see the goal, result and feedback you created  
+If you dont repeat and check where it go wrong  
 
-#### **Axes**  
+### **Write a Python Server**    
 
