@@ -30,3 +30,14 @@ URDF section will cover:
 10. Final TF tree
 
 Source: https://www.youtube.com/watch?v=dZ_CyyEvBE0&list=PL2UjcOn0MjffcDh_dUO8EbAlwLfJOdF1b&index=2
+
+Action section will cover:  
+1. Why and when to use actions
+2. How do actions works
+3. Create an Action definition
+4. Write a Python Action Server
+5. Write a Python Action Client
+
+Source: https://www.youtube.com/watch?v=X7YSnDbKMWo&list=PL2UjcOn0MjffcDh_dUO8EbAlwLfJOdF1b&index=4  
+
+Navigation will cover:
