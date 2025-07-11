@@ -142,4 +142,9 @@ source install/setup.bash
 ros2 run actions_py count_until_server  
 
 ### **Write a Python Action Cilent**  
+#### **Create file**  
+cd ~/ros2_ws/src/actions_py/actions_py  
+touch count_until_client.py
+chmod +x count_until_client.py
+
 
