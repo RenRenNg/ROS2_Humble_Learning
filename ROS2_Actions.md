@@ -191,8 +191,8 @@ Add "count_until_client = actions_py.count_until_client:main"
 
 #### **Building**  
 cd ~/ros2_ws  
-colcon build --packages-select actions_py --symlink-install 
-source install/setup.bash
+colcon build --packages-select actions_py --symlink-install  
+source install/setup.bash  
 ros2 run actions_py count_until_server  
 ros2 run actions_py count_until_client  
 
