@@ -196,3 +196,5 @@ source install/setup.bash
 ros2 run actions_py count_until_server  
 ros2 run actions_py count_until_client  
 
+
+### **Getting results on client**   
