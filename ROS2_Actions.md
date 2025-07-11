@@ -130,10 +130,16 @@ if __name__ == "__main__":
     main()
 ```
 
-#### **Add dependecies**  
 #### **Inside setup.py**  
 Under console_scriptes  
 Add "count_until_server = actions_py.count_until_server:main"  
+Save  
 
+#### **building**
+cd ~/ros2_ws  
+colcon build --packages-select actions_py  
+source install/setup.bash  
+ros2 run actions_py count_until_server  
 
+### **Write a Python Action Cilent**  
 
