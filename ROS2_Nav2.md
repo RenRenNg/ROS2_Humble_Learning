@@ -24,5 +24,7 @@ sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup ros-humbe-turtle
 cd ~  
 gedit ~/.bashrc
 Add > export TURTLEBOT3_MODEL=waffle > above source /opt/ros/humble/setup.bash
+printenv | grep TURTLE > should shpw TURTLEBOT3_MODEL=waffle  
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py  
 
 #### **Create Workspace (ros2_ws)**  
