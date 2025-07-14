@@ -20,4 +20,9 @@ Move a robot from point a to b in a safe way
 cd ~  
 sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup ros-humbe-turtlebot3*  
 
+### **Make your robot move in the environment**  
+cd ~  
+gedit ~/.bashrc
+Add export TURTLEBOT3_MODEL=waffle > above source /opt/ros/humble/setup.bash
+
 #### **Create Workspace (ros2_ws)**  
