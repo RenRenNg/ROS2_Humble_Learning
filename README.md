@@ -41,3 +41,14 @@ Action section will cover:
 Source: https://www.youtube.com/watch?v=X7YSnDbKMWo&list=PL2UjcOn0MjffcDh_dUO8EbAlwLfJOdF1b&index=4  
 
 Navigation will cover:
+1. What is Nav2
+2. Install Nav2 for ROS2 Humble
+3. Make your robot move in the environment
+4. Generate map with SLAM
+5. The map
+6. Quick fix and DDS issue with Nav2
+7. Make robot navigate using map
+8. Waypoint follower
+9. How to go futher?
+
+Source: https://www.youtube.com/watch?v=idQb2pB-h2Q&list=PL2UjcOn0MjffcDh_dUO8EbAlwLfJOdF1b&index=4
