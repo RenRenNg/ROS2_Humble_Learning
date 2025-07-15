@@ -36,9 +36,17 @@ ros2 run turtlebot3_teleop teleop_keyboard
 
 Rviz is just a tool for navigation or other applications  
 Gazebo is purely simulation (physic, inertia and etc)
+
 #### **Tips & debugging**  
 Dont turn the robot too fast else the rviz cannot read correctly
 Dont collide with anything  
 If fail > kill everything > relaunch the application
+
+#### **Saving map**  
+cd ~  
+ls  
+mkdir maps  
+ros2 run nav2_map_server map_saver_cli -f maps/[map_name]
+
 
 #### **Create Workspace (ros2_ws)**  
