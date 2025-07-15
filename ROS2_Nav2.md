@@ -26,5 +26,19 @@ gedit ~/.bashrc
 Add > export TURTLEBOT3_MODEL=waffle > above source /opt/ros/humble/setup.bash
 printenv | grep TURTLE > should shpw TURTLEBOT3_MODEL=waffle  
 ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py  
+ros2 run turtlebot3_teleop teleop_keyboard  
+
+### **Generate a Map with SLAM**
+Kill everything  
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py  
+ros2 launch turtlebot3_cartographer cartographer.launch.py use_stim_time:=True  
+ros2 run turtlebot3_teleop teleop_keyboard  
+
+Rviz is just a tool for navigation or other applications  
+Gazebo is purely simulation (physic, inertia and etc)
+#### **Tips & debugging**  
+Dont turn the robot too fast else the rviz cannot read correctly
+Dont collide with anything  
+If fail > kill everything > relaunch the application
 
 #### **Create Workspace (ros2_ws)**  
