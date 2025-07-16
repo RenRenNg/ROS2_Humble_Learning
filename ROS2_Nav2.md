@@ -82,7 +82,7 @@ Add > export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp > between source /opt/ros/hum
 #### **Optional**  
 cd /opt/ros/jumble/share/turtlebot3_navigation2/param  
 sudo gedit waffle.yaml  
-ctrl + f > robot_model_type > "nav2_amcl::DifferentialMotionModel"  
+ctrl + f > robot_model_type > "nav2_amcl::DifferentialMotionModel" > save > reboot
 
 ### **Quick Fix DDS Issue with Nav2**  
 
