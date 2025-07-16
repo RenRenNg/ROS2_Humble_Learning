@@ -66,7 +66,7 @@ P5
 125 118 # x and y coordinates
 255
 ```
-x coord x resolution = 125 * 0.05 = 6.25m long on the x axis  
-y coord x resolution = 116 * 0.05 = 5.8m long on the x axis
+x coord * resolution = 125 * 0.05 = 6.25m long on the x axis  
+y coord * resolution = 116 * 0.05 = 5.8m long on the x axis
 
 #### **Create Workspace (ros2_ws)**  
