@@ -42,12 +42,17 @@ Dont turn the robot too fast else the rviz cannot read correctly
 Dont collide with anything  
 If fail > kill everything > relaunch the application
 
-#### **Saving map**  
-#### **Inside pgm file**
+### **Saving map**  
 cd ~  
 ls  
 mkdir maps  
-ros2 run nav2_map_server map_saver_cli -f maps/[map_name]
+ros2 run nav2_map_server map_saver_cli -f maps/[map_name]  
+
+#### **Inside pgm file**  
+White = Free space
+Black = Obstacle
+Grey = Unknown  
+
 #### **Inside yaml file**
 ```yaml
 image: map_map.pgm
