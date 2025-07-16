@@ -74,4 +74,10 @@ P5
 x coord * resolution = 125 * 0.05 = 6.25m long on the x axis  
 y coord * resolution = 116 * 0.05 = 5.8m long on the x axis
 
+### **Quick Fix DDS Issue with Nav2**  
+Change quick DDS to cyclone DDS 
+sudo apt install ros-humble-rmw-cyclonedds-cpp  
+gedit ~/.bashrc
+Add > export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp > between source /opt/ros/humble/setup.bash & export TURTLEBOT3_MODEL=waffle
+
 #### **Create Workspace (ros2_ws)**  
