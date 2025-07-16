@@ -78,12 +78,14 @@ y coord * resolution = 116 * 0.05 = 5.8m long on the x axis
 Change quick DDS to cyclone DDS 
 sudo apt install ros-humble-rmw-cyclonedds-cpp  
 gedit ~/.bashrc
-Add > export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp > between source /opt/ros/humble/setup.bash & export TURTLEBOT3_MODEL=waffle
+Add > export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp > between source /opt/ros/humble/setup.bash & export TURTLEBOT3_MODEL=waffle  
+
 #### **Optional**  
 cd /opt/ros/jumble/share/turtlebot3_navigation2/param  
 sudo gedit waffle.yaml  
-ctrl + f > robot_model_type > "nav2_amcl::DifferentialMotionModel" > save > reboot
+ctrl + f > robot_model_type > "nav2_amcl::DifferentialMotionModel" > save > reboot  
 
-### **Quick Fix DDS Issue with Nav2**  
+### **Make the robot navigate using the map**  
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 
 #### **Create Workspace (ros2_ws)**  
