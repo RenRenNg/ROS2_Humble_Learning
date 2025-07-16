@@ -79,5 +79,11 @@ Change quick DDS to cyclone DDS
 sudo apt install ros-humble-rmw-cyclonedds-cpp  
 gedit ~/.bashrc
 Add > export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp > between source /opt/ros/humble/setup.bash & export TURTLEBOT3_MODEL=waffle
+#### **Optional**  
+cd /opt/ros/jumble/share/turtlebot3_navigation2/param  
+sudo gedit waffle.yaml  
+ctrl + f > robot_model_type > "nav2_amcl::DifferentialMotionModel"  
+
+### **Quick Fix DDS Issue with Nav2**  
 
 #### **Create Workspace (ros2_ws)**  
