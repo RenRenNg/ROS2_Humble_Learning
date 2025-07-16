@@ -99,5 +99,6 @@ controller = local planner
 ### **Waypoint Follower**  
 Creating a route/patrol
 In Rviz > waypoint mode > Nav2 goal > choose section where you want the route to be > repeat from Nav2 goal > cotinue till desired route is finished > Start waypoint following
+Start Nav through poses (Goes through waypoint endlessly) less stable than Start waypoint following  
 
 #### **Create Workspace (ros2_ws)**  
