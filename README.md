@@ -1,4 +1,4 @@
-# ROS2_Humble_Learning
+# ROS2 Humble Learning Crash Course
 
 This repo purpose contains my learning journey crash course on ROS2 Humble > URDF > Actions > Navigation.  
 
