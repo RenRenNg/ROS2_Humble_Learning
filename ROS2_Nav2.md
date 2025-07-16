@@ -86,6 +86,18 @@ sudo gedit waffle.yaml
 ctrl + f > robot_model_type > "nav2_amcl::DifferentialMotionModel" > save > reboot  
 
 ### **Make the robot navigate using the map**  
-ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py  
+ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=maps/map_map.yaml  
+
+#### **Localisation**  
+In Rviz > 2D Pose estimate > click, hold and drag to where the robot is and facing.  
+
+#### **Goal**    
+Click Nav2 goal > choose a spot and orientation 
+controller = local planner  
+
+### **Waypoint Follower**  
+Creating a route/patrol
+In Rviz > waypoint mode > Nav2 goal > choose section where you want the route to be > repeat from Nav2 goal > cotinue till desired route is finished > Start waypoint following
 
 #### **Create Workspace (ros2_ws)**  
