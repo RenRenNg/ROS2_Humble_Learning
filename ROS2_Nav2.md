@@ -49,9 +49,9 @@ mkdir maps
 ros2 run nav2_map_server map_saver_cli -f maps/[map_name]  
 
 #### **Inside pgm file**  
-White = Free space
-Black = Obstacle
-Grey = Unknown  
+White = Free space  
+Black = Obstacle  
+Grey = Unknown   
 
 #### **Inside yaml file**
 ```yaml
