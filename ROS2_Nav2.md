@@ -43,10 +43,30 @@ Dont collide with anything
 If fail > kill everything > relaunch the application
 
 #### **Saving map**  
+#### **Inside pgm file**
 cd ~  
 ls  
 mkdir maps  
 ros2 run nav2_map_server map_saver_cli -f maps/[map_name]
-
+#### **Inside yaml file**
+```yaml
+image: map_map.pgm
+mode: trinary
+resolution: 0.05 # metres/pixel
+origin: [-1.27, -2.47, 0] # starting point with respect to coordinates from the lowest left point
+negate: 0
+occupied_thresh: 0.65 # if pixel > 65% occupied, consider as an obstacle
+free_thresh: 0.25 # if pixel < 25% not occupied, not an obstacle
+```
+#### **Calculate distance of the map from pixel**  
+cd ~/maps/[map_name]  
+nano [map_name.pgm]  
+```pgm  
+P5
+125 118 # x and y coordinates
+255
+```
+x coord*resolution = 125 * 0.05 = 6.25m long on the x axis  
+y coord*resolution = 116 * 0.05 = 5.8m long on the x axis
 
 #### **Create Workspace (ros2_ws)**  
