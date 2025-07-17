@@ -58,6 +58,7 @@ Inside setup.py: Use when installing node under console scripts
 
 ### **What is a ROS2 Node**  
 <img width="665" height="391" alt="image" src="https://github.com/user-attachments/assets/8b5a15f2-b632-47cf-930a-8bd638a811f0" />  
+
 - Subprograms in your application, responsible for only one thing
 - Combined into a graph
 - Communincate with each other through topics, service and parameters
