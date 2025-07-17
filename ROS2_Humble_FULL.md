@@ -10,4 +10,21 @@ Follow the instructions of installation in https://docs.ros.org/en/humble/Instal
 ros2 run  demo_nodes_cpp talker  
 ros2 run demo_nodes_cpp listener  
 
-## **Write your first ROS 2 program**
+## **Write your first ROS 2 program**  
+### **Create a ROS2 Workspace**
+cd ~  
+mkdir ros2_ws  
+cd ros2_ws/  
+mkdir src
+#### **Building**  
+cd ~/ros2_ws
+colcon build
+ls > should see build install and log folders  
+#### **Sourcing workspace**
+cd ~/ros2_ws/install  
+ls > there is a setup.bash file that need sourcing
+cd ~  
+gedit .bashrc
+Add > source cd ~/ros2_ws/install/setup.bash at the last line > SAVE  
+
+
