@@ -21,7 +21,6 @@ https://www.udemy.com/course/ros2-for-beginners/
 ## **Install ROS2 and Setup your enivronment**
 In this tutorial, I will be using Humble instead of Jazzy as I am using Ubuntu 22.04 Native   
 Follow the instructions of installation in https://docs.ros.org/en/humble/Installation.html  
-
 ### **Launch ROS2 Program**
 ros2 run demo_nodes_cpp talker  
 ros2 run demo_nodes_cpp listener  
@@ -48,7 +47,6 @@ Each package is an independent unit.
 For example, in one application you could have one package that will handle a camera, another package that will run the wheels of your robot, and yet another one that will handle motion planning for the robot in the environment.  
 cd ~/ros2_ws/src/  
 ros2 pkg create my_py_pkg --build-type ament_python --dependencies rclpy  #py verison
-ros2 pkg create my_cpp_pkg --build-type ament_cmake --dependencies rclcpp  #cpp version  
 ##### **Inside my_py_pkg**  
 Inside my_py_pkg > my_py_pkg: This is where you write the py codes.  
 Inside package.xml: FIll up license if you publishing the code, dependencies, build type  
