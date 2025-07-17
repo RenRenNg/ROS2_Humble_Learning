@@ -1,9 +1,9 @@
 # **ROS2 Humble Learning**
 ## **Useful Tools**  
 cd #moving directories  
-mkdir #Make folder  
-touch #create a file with format (.py, .yaml)  
-chmod +x #change file permissions  
+mkdir <folder_name> #Make folder  
+touch <file_name> #create a file with format (.py, .yaml)  
+chmod +x <file_name> #change file permissions  
 ls #Show list of files in current directory  
 ls -la #Show hidden files  
 gedit #edit certain file code  
@@ -12,8 +12,8 @@ code . #launch vs code from current directory of the terminal
 colcon build #cpp  
 colcon build --packages-select <package_name_1> <package_name_2> ...  #Build selected packages
 rm -r build/ install/ log/ #if build in the wrong cd instead of ~/ros2_ws  
-ros2 pkg create [pkg_name] --build-type ament_python --dependencies rclpy #Create a pkg with py version and dependencies  
-ros2 pkg create [pkg_name] --build-type ament_cmake --dependencies rclcpp #Create a pkg with cpp version and dependencies  
+ros2 pkg create <pkg_name> --build-type ament_python --dependencies rclpy #Create a pkg with py version and dependencies  
+ros2 pkg create <pkg_name> --build-type ament_cmake --dependencies rclcpp #Create a pkg with cpp version and dependencies  
 ros2 run  
 
 ## **Source**  
@@ -42,7 +42,9 @@ ls > there is a setup.bash file that need sourcing
 cd ~  
 gedit .bashrc
 Add > source cd ~/ros2_ws/install/setup.bash at the last line > SAVE  
+
 ### **Create a Python Package**  
+<img width="714" height="386" alt="image" src="https://github.com/user-attachments/assets/2563831f-8a31-4ef6-8a4d-df69dcf46eaf" />  
 Packages will allow you to separate your code into reusable blocks.  
 Each package is an independent unit.  
 For example, in one application you could have one package that will handle a camera, another package that will run the wheels of your robot, and yet another one that will handle motion planning for the robot in the environment.  
@@ -52,5 +54,16 @@ ros2 pkg create my_py_pkg --build-type ament_python --dependencies rclpy  #py ve
 Inside my_py_pkg > my_py_pkg: This is where you write the py codes.  
 Inside package.xml: FIll up license if you publishing the code, dependencies, build type  
 Inside setup.py: Use when installing node under console scripts  
+
 ### **What is a ROS2 Node**  
+<img width="665" height="391" alt="image" src="https://github.com/user-attachments/assets/8b5a15f2-b632-47cf-930a-8bd638a811f0" />  
+- Subprograms in your application, responsible for only one thing
+- Combined into a graph
+- Communincate with each other through topics, service and parameters
+Benfits:
+- Reduce code complexity
+- Fault tolerance
+- Can be written in Py, C++, ...
+
+### **Write a Python Node** -Minimal Code  
 
