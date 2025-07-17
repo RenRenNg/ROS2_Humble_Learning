@@ -2,10 +2,10 @@
 ## **Useful Tools**  
 cd #moving directories  
 mkdir #Make folder  
-touch #create a file with format (.py, .yaml)
-chmod +x #change file permissions
+touch #create a file with format (.py, .yaml)  
+chmod +x #change file permissions  
 ls #Show list of files in current directory  
-ls -la #Show hidden files
+ls -la #Show hidden files  
 gedit #edit certain file code  
 
 
