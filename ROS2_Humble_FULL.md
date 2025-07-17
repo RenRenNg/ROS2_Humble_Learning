@@ -7,7 +7,11 @@ chmod +x #change file permissions
 ls #Show list of files in current directory  
 ls -la #Show hidden files  
 gedit #edit certain file code  
-
+code . #launch vs code from current directory of the terminal
+### **ROS2 Tools**
+colcon build #cpp
+ros2 pkg create [pkg_name] --build-type ament_python --dependencies rclpy #Create a pkg with py version and dependcies
+ros2 run
 
 
 ## **Source**  
@@ -42,4 +46,5 @@ Packages will allow you to separate your code into reusable blocks.
 Each package is an independent unit.  
 For example, in one application you could have one package that will handle a camera, another package that will run the wheels of your robot, and yet another one that will handle motion planning for the robot in the environment.  
 cd ~/ros2_ws/src/
-ros2 pkg create
+ros2 pkg create my_py_pkg --build-type ament_python --dependencies rclpy  
+
