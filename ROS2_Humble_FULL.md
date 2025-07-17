@@ -11,7 +11,8 @@ code . #launch vs code from current directory of the terminal
 ### **ROS2 Tools**  
 colcon build #cpp  
 colcon build --packages-select <package_name_1> <package_name_2> ...  #Build selected packages
-ros2 pkg create [pkg_name] --build-type ament_python --dependencies rclpy #Create a pkg with py version and dependcies  
+ros2 pkg create [pkg_name] --build-type ament_python --dependencies rclpy #Create a pkg with py version and dependencies  
+ros2 pkg create [pkg_name] --build-type ament_cmake --dependencies rclcpp #Create a pkg with cpp version and dependencies  
 ros2 run  
 
 ## **Source**  
@@ -46,7 +47,8 @@ Packages will allow you to separate your code into reusable blocks.
 Each package is an independent unit.  
 For example, in one application you could have one package that will handle a camera, another package that will run the wheels of your robot, and yet another one that will handle motion planning for the robot in the environment.  
 cd ~/ros2_ws/src/  
-ros2 pkg create my_py_pkg --build-type ament_python --dependencies rclpy  
+ros2 pkg create my_py_pkg --build-type ament_python --dependencies rclpy  #py verison
+ros2 pkg create my_cpp_pkg --build-type ament_cmake --dependencies rclcpp  #cpp version  
 ##### **Inside my_py_pkg**  
 Inside my_py_pkg > my_py_pkg: This is where you write the py codes.  
 Inside package.xml: FIll up license if you publishing the code, dependencies, build type  
