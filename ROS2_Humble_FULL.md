@@ -48,7 +48,7 @@ Each package is an independent unit.
 For example, in one application you could have one package that will handle a camera, another package that will run the wheels of your robot, and yet another one that will handle motion planning for the robot in the environment.  
 cd ~/ros2_ws/src/  
 ros2 pkg create my_py_pkg --build-type ament_python --dependencies rclpy  #py verison
-##### **Inside my_py_pkg**  
+#### **Inside my_py_pkg**  
 Inside my_py_pkg > my_py_pkg: This is where you write the py codes.  
 Inside package.xml: FIll up license if you publishing the code, dependencies, build type  
 Inside setup.py: Use when installing node under console scripts  
