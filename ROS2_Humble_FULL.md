@@ -44,7 +44,8 @@ gedit .bashrc
 Add > source cd ~/ros2_ws/install/setup.bash at the last line > SAVE  
 
 ### **Create a Python Package**  
-<img width="714" height="386" alt="image" src="https://github.com/user-attachments/assets/2563831f-8a31-4ef6-8a4d-df69dcf46eaf" />  
+<img width="714" height="386" alt="image" src="https://github.com/user-attachments/assets/2563831f-8a31-4ef6-8a4d-df69dcf46eaf" />   
+
 Packages will allow you to separate your code into reusable blocks.  
 Each package is an independent unit.  
 For example, in one application you could have one package that will handle a camera, another package that will run the wheels of your robot, and yet another one that will handle motion planning for the robot in the environment.  
