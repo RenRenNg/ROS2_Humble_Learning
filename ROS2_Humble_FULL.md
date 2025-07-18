@@ -116,7 +116,7 @@ class MyNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = Node("py_test") # Node name
+    node = MyNode()
     rclpy.spin(node) # run forever until ctrl c is used
     rclpy.shutdown()
 
