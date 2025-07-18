@@ -21,6 +21,7 @@ source install/setup.bash
 ros2 run <package_name> <executable_node_name>  
 ros2 node list # show list of nodes running
 ros2 node info <node_name> # Show info of the node
+ros2 interface show  
 rqt_graph # Graphical representation of the nodes, topics and networks   
 
 ## **OOP Template for Your Nodes**  
@@ -148,3 +149,18 @@ ros2 run my_py_pkg py_node --ros-args -r __node:=abc  # Rename node when running
 ros2 run turtlesim turtlesim_node   
 ros2 run turtlesim turtle_teleop_key # Keyboard control   
 
+## **ROS2 Topics**  
+### **What is ROS2 Topic**  
+A topic is a named bus over which nodes exchange messages
+- Unidirectional data stream (Publisher/Subscriber)
+- Anonymous
+- A topic has a message type
+- Can be written in Python, C++, ... directly inside ROS nodes
+- A node can have many publishers/subscribers for any different topics
+
+### **Write a Python Publisher**
+cd ~/ros2_ws/src/my_py_pkg/my_py_pkg  
+touch robot_news_station.py  
+chmod +x robot_news_station.py  
+#### **Add dependencies**
+<depend>example_interfaces</depend>
