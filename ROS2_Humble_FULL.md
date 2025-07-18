@@ -21,6 +21,8 @@ source install/setup.bash
 ros2 run <package_name> <executable_node_name>  
 ros2 node list # show list of nodes running
 ros2 node info <node_name> # Show info of the node
+rqt_graph # Graphical representation of the nodes, topics and networks   
+
 ## **OOP Template for Your Nodes**  
 ```python
 #!/usr/bin/env python3
@@ -140,5 +142,9 @@ ros2 run my_py_pkg py_node
 ## **Intro to ROS2 Tools**  
 ### **Rename a Node at Runtime**
 When a node needs to be run multiple times.  
-ros2 run my_py_pkg py_node --ros-args -r __node:=abc  #rename node when running
-### **Colcon**  
+ros2 run <pkg_name> <executable_node_name> --ros-args -r __node:=<new_executeable_node_name>  #rename node when running  
+ros2 run my_py_pkg py_node --ros-args -r __node:=abc  #rename node when running  
+### **TurtleSim**   
+ros2 run turtlesim turtlesim_node   
+ros2 run turtlesim  turtle_teleop_key # Keyboard control   
+
