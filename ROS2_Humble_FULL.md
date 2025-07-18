@@ -12,7 +12,7 @@ code . #launch vs code from current directory of the terminal
 ros2 <command_line> -h # show arguments/commands of the command  
 colcon build # Must be inside the workspace first level (~/ros2_ws/)   
 colcon build --packages-select <package_name_1> <package_name_2> ...  #Build selected packages  
-colcon build --packages-select <package_name_1> <package_name_2> -symlink-install # constant  building python packages only (less stable  
+colcon build --packages-select <package_name_1> <package_name_2> -symlink-install # constant  building python packages only (less stable & buggy)   
 rm -r build/ install/ log/ #if build in the wrong cd instead of ~/ros2_ws  
 ros2 pkg create <pkg_name> --build-type ament_python --dependencies rclpy #Create a pkg with py version and dependencies  
 ros2 pkg create <pkg_name> --build-type ament_cmake --dependencies rclcpp #Create a pkg with cpp version and dependencies  
