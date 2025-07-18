@@ -142,9 +142,9 @@ ros2 run my_py_pkg py_node
 ## **Intro to ROS2 Tools**  
 ### **Rename a Node at Runtime**
 When a node needs to be run multiple times.  
-ros2 run <pkg_name> <executable_node_name> --ros-args -r __node:=<new_executeable_node_name>  #rename node when running  
-ros2 run my_py_pkg py_node --ros-args -r __node:=abc  #rename node when running  
+ros2 run <pkg_name> <executable_node_name> --ros-args -r __node:=<new_executeable_node_name>  # Rename node when running  
+ros2 run my_py_pkg py_node --ros-args -r __node:=abc  # Rename node when running  
 ### **TurtleSim**   
 ros2 run turtlesim turtlesim_node   
-ros2 run turtlesim  turtle_teleop_key # Keyboard control   
+ros2 run turtlesim turtle_teleop_key # Keyboard control   
 
