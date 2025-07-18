@@ -14,7 +14,9 @@ colcon build --packages-select <package_name_1> <package_name_2> ...  #Build sel
 rm -r build/ install/ log/ #if build in the wrong cd instead of ~/ros2_ws  
 ros2 pkg create <pkg_name> --build-type ament_python --dependencies rclpy #Create a pkg with py version and dependencies  
 ros2 pkg create <pkg_name> --build-type ament_cmake --dependencies rclcpp #Create a pkg with cpp version and dependencies  
-ros2 run  
+source ~/.bashrc  
+source install/setup.bash  
+ros2 run <package_name> <executable node name>  
 
 ## **Source**  
 https://www.udemy.com/course/ros2-for-beginners/
