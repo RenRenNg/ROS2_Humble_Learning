@@ -16,7 +16,7 @@ ros2 pkg create <pkg_name> --build-type ament_python --dependencies rclpy #Creat
 ros2 pkg create <pkg_name> --build-type ament_cmake --dependencies rclcpp #Create a pkg with cpp version and dependencies  
 source ~/.bashrc  
 source install/setup.bash  
-ros2 run <package_name> <executable node name>  
+ros2 run <package_name> <executable_node_name>  
 
 ## **Source**  
 https://www.udemy.com/course/ros2-for-beginners/
