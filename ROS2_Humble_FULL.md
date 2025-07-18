@@ -70,7 +70,6 @@ Benfits:
 ### **Write a Python Node** - Minimal Code  
 cd ~/ros2_ws/src/my_py_pkg/my_py_pkg  
 touch my_first_node.py  
-chmod +x my_first_node.py  
 #### **Inside my_first_node.py**
 ```python
 #!/usr/bin/env python3
@@ -81,10 +80,14 @@ def main(args=None):
     rclpy.init(args=args)
     node = Node("py_test") # Node name
     node.get_logger().info("Hello world")
+    rclpy.spin(node) # run forever until ctrl c is used
     rclpy.shutdown()
 
 if __name__ == "__main__":
     main()
 ```
+chmod +x my_first_node.py  
+./my_first_node.py  #run file or the python3 way
+
 
 
