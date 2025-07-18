@@ -98,6 +98,37 @@ colcon build --packages-select my_py_pkg
 source ~/.bashrc  
 ros2 run my_py_pkg py_node  
 
-### **Write a Python Node** - With OOP
+### **Write a Python Node** - with OOP
+cd ~/ros2_ws/src/my_py_pkg/my_py_pkg  
+touch my_first_node.py  
+#### **Inside my_first_node.py**  
+```python
+#!/usr/bin/env python3
+import rclpy 
+from rclpy.node import Node
 
+class MyNode(Node):
+    def __init__(self):
+        super().__init__("py_test")
+        self.get_logger().info("Hello world")
 
+def main(args=None):
+    rclpy.init(args=args)
+    node = Node("py_test") # Node name
+    rclpy.spin(node) # run forever until ctrl c is used
+    rclpy.shutdown()
+
+if __name__ == "__main__":
+    main()
+```  
+chmod +x my_first_node.py  
+./my_first_node.py  #run file or the python3 way  
+#### **Install node**
+Inside setup.py file  
+Under console scripts  
+"py_node = my_py_pkg.my_first_node:main" #executable node name  
+#### **Building**  
+cd ~/ros2_ws  
+colcon build --packages-select my_py_pkg  
+source ~/.bashrc  
+ros2 run my_py_pkg py_node 
