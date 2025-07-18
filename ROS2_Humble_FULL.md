@@ -9,9 +9,10 @@ ls -la #Show hidden files
 gedit #edit certain file code  
 code . #launch vs code from current directory of the terminal  
 ## **ROS2 Tools**  
-ros2 <command_line> -h # show arguments/commands of the command
-colcon build #cpp  
-colcon build --packages-select <package_name_1> <package_name_2> ...  #Build selected packages  
+ros2 <command_line> -h # show arguments/commands of the command  
+colcon build # Must be inside the workspace first level (~/ros2_ws/)  
+colcon build --packages-select <package_name_1> <package_name_2> ...  #Build selected packages 
+colcon build --packages-select <package_name_1> <package_name_2> -symlink-install # constant building python packages only (less stable  
 rm -r build/ install/ log/ #if build in the wrong cd instead of ~/ros2_ws  
 ros2 pkg create <pkg_name> --build-type ament_python --dependencies rclpy #Create a pkg with py version and dependencies  
 ros2 pkg create <pkg_name> --build-type ament_cmake --dependencies rclcpp #Create a pkg with cpp version and dependencies  
@@ -137,5 +138,7 @@ ros2 run my_py_pkg py_node
 <img width="804" height="340" alt="image" src="https://github.com/user-attachments/assets/f6a97755-05fd-4540-b7e1-d433fdd60110" />  
 
 ## **Intro to ROS2 Tools**  
-### **Introspect your Nodes with ROS2**  
-
+### **Rename a Node at Runtime**
+When a node needs to be run multiple times.  
+ros2 run my_py_pkg py_node --ros-args -r __node:=abc  #rename node when running
+### **Colcon**  
