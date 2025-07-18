@@ -9,6 +9,7 @@ ls -la #Show hidden files
 gedit #edit certain file code  
 code . #launch vs code from current directory of the terminal  
 ## **ROS2 Tools**  
+ros2 <command> -h # show arguments of the command
 colcon build #cpp  
 colcon build --packages-select <package_name_1> <package_name_2> ...  #Build selected packages  
 rm -r build/ install/ log/ #if build in the wrong cd instead of ~/ros2_ws  
@@ -16,7 +17,7 @@ ros2 pkg create <pkg_name> --build-type ament_python --dependencies rclpy #Creat
 ros2 pkg create <pkg_name> --build-type ament_cmake --dependencies rclcpp #Create a pkg with cpp version and dependencies  
 source ~/.bashrc  
 source install/setup.bash  
-ros2 run <package_name> <executable_node_name>   
+ros2 run <package_name> <executable_node_name> 
 ## **OOP Template for Your Nodes**  
 ```python
 #!/usr/bin/env python3
@@ -128,4 +129,11 @@ Under console scripts
 cd ~/ros2_ws  
 colcon build --packages-select my_py_pkg  
 source ~/.bashrc  
-ros2 run my_py_pkg py_node  
+ros2 run my_py_pkg py_node   
+### **ROS2 Client Libraries (RCL)**  
+
+<img width="804" height="340" alt="image" src="https://github.com/user-attachments/assets/f6a97755-05fd-4540-b7e1-d433fdd60110" />  
+
+## **Intro to ROS2 Tools**  
+### **Introspect your Nodes with ROS2**  
+
