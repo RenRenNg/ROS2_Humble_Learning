@@ -19,7 +19,7 @@ source install/setup.bash
 ros2 run <package_name> <executable_node_name>  
 
 ## **Source**  
-https://www.udemy.com/course/ros2-for-beginners/
+https://www.udemy.com/course/ros2-for-beginners/  
 
 ## **Install ROS2 and Setup your enivronment**
 In this tutorial, I will be using Humble instead of Jazzy as I am using Ubuntu 22.04 Native   
@@ -33,17 +33,17 @@ ros2 run demo_nodes_cpp listener
 cd ~  
 mkdir ros2_ws  
 cd ros2_ws/  
-mkdir src
+mkdir src  
 #### **Building**  
-cd ~/ros2_ws
-colcon build
+cd ~/ros2_ws  
+colcon build  
 ls > should see build install and log folders  
 #### **Sourcing WorkSpace**
 cd ~/ros2_ws/install  
-ls > there is a setup.bash file that need sourcing
+ls > there is a setup.bash file that need sourcing  
 cd ~  
-gedit .bashrc
-Add > source cd ~/ros2_ws/install/setup.bash at the last line > SAVE  
+gedit .bashrc  
+Add > source cd ~/ros2_ws/install/setup.bash at the last line > SAVE   
 
 ### **Create a Python Package**  
 <img width="714" height="386" alt="image" src="https://github.com/user-attachments/assets/2563831f-8a31-4ef6-8a4d-df69dcf46eaf" />   
