@@ -8,7 +8,7 @@ ls #Show list of files in current directory
 ls -la #Show hidden files  
 gedit #edit certain file code  
 code . #launch vs code from current directory of the terminal  
-### **ROS2 Tools**  
+## **ROS2 Tools**  
 colcon build #cpp  
 colcon build --packages-select <package_name_1> <package_name_2> ...  #Build selected packages  
 rm -r build/ install/ log/ #if build in the wrong cd instead of ~/ros2_ws  
@@ -16,7 +16,29 @@ ros2 pkg create <pkg_name> --build-type ament_python --dependencies rclpy #Creat
 ros2 pkg create <pkg_name> --build-type ament_cmake --dependencies rclcpp #Create a pkg with cpp version and dependencies  
 source ~/.bashrc  
 source install/setup.bash  
-ros2 run <package_name> <executable_node_name>  
+ros2 run <package_name> <executable_node_name>   
+## **OOP Template for Your Nodes**  
+```python
+    #!/usr/bin/env python3
+    import rclpy
+    from rclpy.node import Node
+     
+     
+    class MyCustomNode(Node): # MODIFY NAME
+        def __init__(self):
+            super().__init__("node_name") # MODIFY NAME
+     
+     
+    def main(args=None):
+        rclpy.init(args=args)
+        node = MyCustomNode() # MODIFY NAME
+        rclpy.spin(node)
+        rclpy.shutdown()
+     
+     
+    if __name__ == "__main__":
+        main()
+```
 
 ## **Source**  
 https://www.udemy.com/course/ros2-for-beginners/  
