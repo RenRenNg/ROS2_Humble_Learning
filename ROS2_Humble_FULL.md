@@ -91,7 +91,13 @@ chmod +x my_first_node.py
 #### **Install node**
 Inside setup.py file  
 Under console scripts  
-"py_node = my_py_pkg.my_first_node:main"  
+"py_node = my_py_pkg.my_first_node:main" #executable node name  
+#### **Building**  
+cd ~/ros2_ws  
+colcon build --packages-select my_py_pkg  
+source ~/.bashrc  
+ros2 run my_py_pkg py_node  
 
+### **Write a Python Node** - With OOP
 
 
