@@ -190,8 +190,11 @@ def main(args=None):
 if __name__ == "__main__":
     main()
 ```
-#### **Add dependencies**
-```xml
-<depend>example_interfaces</depend>
-```
+#### **Getting the msg to publish**
+ros2 topic list > look for /turtle1\_cmd_vel  
+ros2 topic info /turtle1/cmd_vel > look at Type section > geometry_msgs/msg/Twist  
+Import the msg to draw\_circle file  
+
+#### **Adding dependencies**
+In package.xml file > below `<depend>rclpy<depend>` > add `<depend>example_interfaces</depend>`
 
