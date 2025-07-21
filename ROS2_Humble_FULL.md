@@ -161,6 +161,37 @@ A topic is a named bus over which nodes exchange messages
 ### **Write a Python Publisher**
 cd ~/ros2_ws/src/my_py_pkg/my_py_pkg  
 touch robot_news_station.py  
-chmod +x robot_news_station.py  
+chmod +x robot_news_station.py   
+#### **Inside robot_news_station**  
+```python
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from example_interfaces.msg import String
+
+class RobotNewsStationNode(Node): # MODIFY NAME
+    def __init__(self):
+        super().__init__("robot_news_station") # MODIFY NAME
+        self.publisher_ = self.create_publisher(String, "robot_news", 10) #msg type, topic/node name, queue size
+        self.timer_ = self.create_timer(0.5,self.pusblish_news)
+    
+    def pusblish_news(self):
+        msg = String()
+        msg.data = "Hello"
+        self.publisher_.publish(msg)
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = RobotNewsStationNode() # MODIFY NAME
+    rclpy.spin(node)
+    rclpy.shutdown()
+     
+     
+if __name__ == "__main__":
+    main()
+```
 #### **Add dependencies**
+```xml
 <depend>example_interfaces</depend>
+```
+
