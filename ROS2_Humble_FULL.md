@@ -21,7 +21,9 @@ source install/setup.bash
 ros2 run <package_name> <executable_node_name>  
 ros2 node list # show list of nodes running
 ros2 node info <node_name> # Show info of the node
-ros2 interface show  
+ros2 interface show   
+ros2 topic list # show lost of topics running  
+ros2 topic echo <topic_name> # show outout of topic  
 rqt_graph # Graphical representation of the nodes, topics and networks   
 
 ## **OOP Template for Your Nodes**  
