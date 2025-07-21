@@ -205,3 +205,35 @@ ros2 interface show example_interface/msg/String > see the inputs of the msg > s
 
 #### **Adding console script**
 In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "robot_news_station = my_py_pkg.robot_news_station:main"
+
+### **Write a Python Subscriber**
+#### **Inside smartphone**  
+```python
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from example_interfaces.msg import String
+
+class SmartPhoneNode(Node):
+    def __init__(self):
+        super().__init__("smartphone")
+        self.subcriber_ = self.create_subscription(String, "robot_news", self.callback_robot_news, 10) #Same name the publisher topic name
+        self.get_logger().info("Smartphone has been started")
+
+    def callback_robot_news(self, msg: String):
+        self.get_logger().info(msg.data) # from the publisher msg type
+
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = SmartPhoneNode()
+    rclpy.spin(node)
+    rclpy.shutdown()
+     
+     
+if __name__ == "__main__":
+    main()
+```  
+#### **Adding console script**
+In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "smartphone = my_py_pkg.smartphone:main"
