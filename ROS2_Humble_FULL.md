@@ -196,5 +196,10 @@ ros2 topic info /turtle1/cmd_vel > look at Type section > geometry_msgs/msg/Twis
 Import the msg to draw\_circle file  
 
 #### **Adding dependencies**
-In package.xml file > below `<depend>rclpy<depend>` > add `<depend>example_interfaces</depend>`
+In package.xml file > below `<depend>rclpy<depend>` > add `<depend>example_interfaces</depend>`  
 
+#### **What input do i need**
+ros2 interface show example_interface/msg/String > see the inputs of the msg > string data
+
+#### **Adding console script**
+In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "robot_news_station = my_py_pkg.robot_news_station:main"
