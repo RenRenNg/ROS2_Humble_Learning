@@ -23,8 +23,8 @@ ros2 node list #Show list of nodes running
 ros2 node info <node_name> #Show info of the node 
 ros2 topic list #Show list of topics running  
 ros2 topic echo <topic_name> #Show output of topic  
-ros2 topic info <topic_name> #Show data type, publisher and subscription count  
-ros2 interface show <info_of_data_type_of_topic_name>  
+ros2 topic info <topic_name> #Show msg type, publisher and subscription count  
+ros2 interface show <msg_type> #Show what is inside the msg    
 ros2 topic hz <topic_name> #Show rate of msg publish  
 ros2 topic bw <topic_name> #Show how much data is sent  
 rqt_graph #Graphical representation of the nodes, topics and networks  
@@ -243,7 +243,15 @@ In setup.py file > under entry_points > add "," behind an exising node if there 
 ### **Remap a topic at Runtime**  
 ros2 run my_py_pkg robot_news_station --ros-args -r __node:=my_station -r robot_news:=abc  
 ros2 run <pkg_name> <file_name> --ros-args -r __node:=<new_node_name> -r robot_news:=<new_topic_name>  
-NOTE: Subscriber will also need to rename the topic name to get the messages  
+**NOTE: Subscriber will also need to rename the topic name to get the messages**  
 ros2 run my_py_pkg smartphone --ros-args -r robot_news:=abc  
 
-
+### **Monitor Topics with rqt and rqt_graph**  
+### **Experiment on Topics with Turtlesim**  
+ros2 run turtlesim turtlesim_node   
+rqt_graph  
+ros2 node info <node_name> #To see pub and sub  
+ros2 topic info <topic_name> #See Pub and Sub count and msg type  
+ros2 show interface <msg_type> #See what is inside the msg 
+#### **Creating a publisher from the terminal**  
+ros2 topic pub -r 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0}, angular: {z: 1.0}}"  
