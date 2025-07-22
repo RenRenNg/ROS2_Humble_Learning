@@ -28,6 +28,13 @@ ros2 interface show <msg_type> #Show what is inside the msg
 ros2 topic hz <topic_name> #Show rate of msg publish  
 ros2 topic bw <topic_name> #Show how much data is sent  
 rqt_graph #Graphical representation of the nodes, topics and networks  
+ros2 bag record <topic_name> #Record data for that topic until ctrl + c  
+ros2 bag record <topic_name1> <topic_name2> #Record multiple data for that topic until ctrl + c  
+ros2 bag record -a #Record all data for that topic until ctrl + c  
+ros2 bag record -o <file_name> <topic_name1> #Record data and output file will be named according to user  
+ros2 bag record -o <file_name> <topic_name1> <topic_name2> #Record multiple data and output file will be named according to user  
+ros2 bag info <file_name> #Info of the bag file  
+ros2 bag play <file_name> #Play recorded file to see data topic needs to be subscribed  
 
 ## **OOP Template for Your Nodes**  
 ```python
@@ -255,3 +262,6 @@ ros2 topic info <topic_name> #See Pub and Sub count and msg type
 ros2 show interface <msg_type> #See what is inside the msg 
 #### **Creating a publisher from the terminal**  
 ros2 topic pub -r 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0}, angular: {z: 1.0}}"  
+
+### **Extra: Replay topic data with bags**  
+
