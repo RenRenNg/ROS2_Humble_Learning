@@ -241,5 +241,9 @@ if __name__ == "__main__":
 In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "smartphone = my_py_pkg.smartphone:main"  
 
 ### **Remap a topic at Runtime**  
+ros2 run my_py_pkg robot_news_station --ros-args -r __node:=my_station -r robot_news:=abc  
+ros2 run <pkg_name> <file_name> --ros-args -r __node:=<new_node_name> -r robot_news:=<new_topic_name>  
+NOTE: Subscriber will also need to rename the topic name to get the messages  
+ros2 run my_py_pkg smartphone --ros-args -r robot_news:=abc  
 
 
