@@ -20,11 +20,14 @@ source ~/.bashrc
 source install/setup.bash  
 ros2 run <package_name> <executable_node_name>  
 ros2 node list # show list of nodes running
-ros2 node info <node_name> # Show info of the node
-ros2 interface show   
-ros2 topic list # show lost of topics running  
+ros2 node info <node_name> # Show info of the node 
+ros2 topic list # show list of topics running  
 ros2 topic echo <topic_name> # show output of topic  
-rqt_graph # Graphical representation of the nodes, topics and networks   
+ros2 topic info <topic_name> # show data type, publisher and subscription count  
+ros2 interface show <info_of_data_type_of_topic_name>  
+ros2 topic hz <topic_name> # Show rate of msg publish  
+ros2 topic bw <topic_name> # Show how much data is sent
+rqt_graph # Graphical representation of the nodes, topics and networks  
 
 ## **OOP Template for Your Nodes**  
 ```python
@@ -237,5 +240,6 @@ if __name__ == "__main__":
 #### **Adding console script**
 In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "smartphone = my_py_pkg.smartphone:main"  
 
-### **Write a Python Subscriber**  
+### **Remap a topic at Runtime**  
+
 
