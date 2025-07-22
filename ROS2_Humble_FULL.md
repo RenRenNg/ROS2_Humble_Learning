@@ -1,33 +1,33 @@
 # **ROS2 Humble Learning**
 ## **Useful Tools**  
-cd #moving directories  
+cd #Moving directories  
 mkdir <folder_name> #Make folder  
-touch <file_name> #create a file with format (.py, .yaml)  
-chmod +x <file_name> #change file permissions  
+touch <file_name> #Create a file with format (.py, .yaml)  
+chmod +x <file_name> #Change file permissions  
 ls #Show list of files in current directory  
 ls -la #Show hidden files  
-gedit #edit certain file code  
-code . #launch vs code from current directory of the terminal  
+gedit #Edit certain file code  
+code . #Launch vs code from current directory of the terminal  
 ## **ROS2 Tools**  
-ros2 <command_line> -h # show arguments/commands of the command  
-colcon build # Must be inside the workspace first level (~/ros2_ws/)   
+ros2 <command_line> -h #Show arguments/commands of the command  
+colcon build #Must be inside the workspace first level (~/ros2_ws/)   
 colcon build --packages-select <package_name_1> <package_name_2> ...  #Build selected packages  
-colcon build --packages-select <package_name_1> <package_name_2> -symlink-install # constant  building python packages only (less stable & buggy)   
-rm -r build/ install/ log/ #if build in the wrong cd instead of ~/ros2_ws  
+colcon build --packages-select <package_name_1> <package_name_2> -symlink-install #Constant building python packages only (less stable & buggy)   
+rm -r build/ install/ log/ #If build in the wrong cd instead of ~/ros2_ws  
 ros2 pkg create <pkg_name> --build-type ament_python --dependencies rclpy #Create a pkg with py version and dependencies  
 ros2 pkg create <pkg_name> --build-type ament_cmake --dependencies rclcpp #Create a pkg with cpp version and dependencies  
 source ~/.bashrc  
 source install/setup.bash  
 ros2 run <package_name> <executable_node_name>  
-ros2 node list # show list of nodes running
-ros2 node info <node_name> # Show info of the node 
-ros2 topic list # show list of topics running  
-ros2 topic echo <topic_name> # show output of topic  
-ros2 topic info <topic_name> # show data type, publisher and subscription count  
+ros2 node list #Show list of nodes running
+ros2 node info <node_name> #Show info of the node 
+ros2 topic list #Show list of topics running  
+ros2 topic echo <topic_name> #Show output of topic  
+ros2 topic info <topic_name> #Show data type, publisher and subscription count  
 ros2 interface show <info_of_data_type_of_topic_name>  
-ros2 topic hz <topic_name> # Show rate of msg publish  
-ros2 topic bw <topic_name> # Show how much data is sent
-rqt_graph # Graphical representation of the nodes, topics and networks  
+ros2 topic hz <topic_name> #Show rate of msg publish  
+ros2 topic bw <topic_name> #Show how much data is sent  
+rqt_graph #Graphical representation of the nodes, topics and networks  
 
 ## **OOP Template for Your Nodes**  
 ```python
