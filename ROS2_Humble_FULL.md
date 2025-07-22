@@ -158,8 +158,7 @@ A topic is a named bus over which nodes exchange messages
 - Anonymous
 - A topic has a message type
 - Can be written in Python, C++, ... directly inside ROS nodes
-- A node can have many publishers/subscribers for any different topics
-
+- A node can have many publishers/subscribers for any different topics  
 ### **Write a Python Publisher**
 cd ~/ros2_ws/src/my_py_pkg/my_py_pkg  
 touch robot_news_station.py  
@@ -236,4 +235,7 @@ if __name__ == "__main__":
     main()
 ```  
 #### **Adding console script**
-In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "smartphone = my_py_pkg.smartphone:main"
+In setup.py file > under entry_points > add "," behind an exising node if there is > new line > add "smartphone = my_py_pkg.smartphone:main"  
+
+### **Write a Python Subscriber**  
+
