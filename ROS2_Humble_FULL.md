@@ -39,6 +39,7 @@ ros2 bag record -o <file_name> <topic_name1> #Record data and output file will b
 ros2 bag record -o <file_name> <topic_name1> <topic_name2> #Record multiple data and output file will be named according to user  
 ros2 bag info <file_name> #Info of the bag file  
 ros2 bag play <file_name> #Play recorded file to see data topic needs to be subscribed  
+ros2 service call <service_name> <interface_name> <request> # Provide request for a service ONLY WORK FOR SIMPLE REQUEST
 
 ## **OOP Template for Your Nodes**  
 ```python
