@@ -39,10 +39,11 @@ ros2 bag record -o <file_name> <topic_name1> #Record data and output file will b
 ros2 bag record -o <file_name> <topic_name1> <topic_name2> #Record multiple data and output file will be named according to user  
 ros2 bag info <file_name> #Info of the bag file  
 ros2 bag play <file_name> #Play recorded file to see data topic needs to be subscribed  
+#### **Service**
 ros2 service list # Show list of services   
-ros2 service type <service_name> # Show interface
-ros2 service call <service_name> <interface_name> <request> # Provide request for a service ONLY WORK FOR SIMPLE REQUEST
-rqt > plugins > service caller to send simple request
+ros2 service type <service_name> # Show interface  
+ros2 service call <service_name> <interface_name> <request> # Provide request for a service ONLY WORK FOR SIMPLE REQUEST  
+rqt > plugins > service caller to send simple request  
 
 ## **OOP Template for Your Nodes**  
 ```python
@@ -384,9 +385,9 @@ def main(args=None):
      
 if __name__ == "__main__":
     main()
-```
-
-
+```  
+### **Remap a Servcie at Runtime**
+ros2 run my_py_pkg <server/client_file_name> --ros-args -r <service_name>:=<new_service_name> 
 
 
 
