@@ -39,7 +39,10 @@ ros2 bag record -o <file_name> <topic_name1> #Record data and output file will b
 ros2 bag record -o <file_name> <topic_name1> <topic_name2> #Record multiple data and output file will be named according to user  
 ros2 bag info <file_name> #Info of the bag file  
 ros2 bag play <file_name> #Play recorded file to see data topic needs to be subscribed  
+ros2 service list # Show list of services   
+ros2 service type <service_name> # Show interface
 ros2 service call <service_name> <interface_name> <request> # Provide request for a service ONLY WORK FOR SIMPLE REQUEST
+rqt > plugins > service caller to send simple request
 
 ## **OOP Template for Your Nodes**  
 ```python
@@ -258,7 +261,6 @@ ros2 run <pkg_name> <file_name> --ros-args -r __node:=<new_node_name> -r robot_n
 **NOTE: Subscriber will also need to rename the topic name to get the messages**  
 ros2 run my_py_pkg smartphone --ros-args -r robot_news:=abc  
 
-### **Monitor Topics with rqt and rqt_graph**  
 ### **Experiment on Topics with Turtlesim**  
 ros2 run turtlesim turtlesim_node   
 rqt_graph  
@@ -268,7 +270,6 @@ ros2 show interface <msg_type> #See what is inside the msg
 #### **Creating a publisher from the terminal**  
 ros2 topic pub -r 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0}, angular: {z: 1.0}}"  
 
-### **Extra: Replay topic data with bags**  
 ## **ROS2 Services - Client/Serer Comms between Nodes**  
 ### **What is ROS2 Service?**  
 - Client/Server system
