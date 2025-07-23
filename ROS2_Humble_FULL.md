@@ -267,5 +267,7 @@ ros2 show interface <msg_type> #See what is inside the msg
 #### **Creating a publisher from the terminal**  
 ros2 topic pub -r 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0}, angular: {z: 1.0}}"  
 
-### **Extra: Replay topic data with bags**  
+### **Extra: Replay topic data with bags**  \
+## **ROS2 Services - Client/Serer Comms between Nodes**  
+### **What is ROS2 Service?**  
 
