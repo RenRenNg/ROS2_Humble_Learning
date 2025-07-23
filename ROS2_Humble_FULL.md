@@ -313,7 +313,77 @@ cd ~/ros2_ws
 colcon build --packages-select my_py_pkg  
 source ~/.bashrc  
 ros2 run my_py_pkg add_two_ints_server  
-### **Write a Python Service Client with OOP**
+### **Write a Python Service Client no OOP**  
+Purpose for introspecting service server when ros2 service call is not sufficient.  
+```python
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from example_interfaces.srv import AddTwoInts
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = Node("add_two_ints_client_no_oop")
+
+    client = node.create_client(AddTwoInts, "add_two_ints") # create client
+    while not client.wait_for_service(1.0): #Check and Wait for service server
+        node.get_logger().warn("Waiting for Add Two Ints Server...")
+
+    request = AddTwoInts.Request() #Request
+    request.a = 3
+    request.b = 8
+
+    future = client.call_async(request) # Send request
+    rclpy.spin_until_future_complete(node, future) # Spin until future is complete
+
+    response = future.result() # Get response from the future object
+    node.get_logger().info(f"{request.a} + {request.b} = {response.sum}")
+
+    rclpy.shutdown()
+     
+     
+if __name__ == "__main__":
+    main()
+```
+### **Write a Python Service Client with OOP**  
+```python
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from example_interfaces.srv import AddTwoInts
+
+class AddTwoIntsClient(Node):
+    def __init__(self):
+        super().__init__("add_two_ints_client")
+        self.client_ = self.create_client(AddTwoInts, "add_two_ints")
+
+    def call_add_two_ints(self, a, b):
+        while not self.client_.wait_for_service(1.0): #Check and Wait for service server
+            self.get_logger().warn("Waiting for Add Two Ints Server...")
+
+        request = AddTwoInts.Request() #Create Request
+        request.a = a
+        request.b = b
+
+        future = self.client_.call_async(request) # Send Request 
+        future.add_done_callback(self.callback_call_add_two_ints) # Register the callback
+
+    def callback_call_add_two_ints(self, future): # Get Reponse from callback
+        response = future.result()
+        self.get_logger().info(f"Got response: {response.sum}")
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = AddTwoIntsClient()
+    node.call_add_two_ints(2, 7)
+    rclpy.spin(node)
+    rclpy.shutdown()
+     
+     
+if __name__ == "__main__":
+    main()
+```
+
 
 
 
