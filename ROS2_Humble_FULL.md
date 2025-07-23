@@ -276,4 +276,44 @@ ros2 topic pub -r 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0},
 - Can be writtten in Python, C++, .. directly inside ROS nodes
 - A service server can only exist once, bit can have many clients
 ### **Python Service Server**  
+ros2 interface show example_interfaces/srv/AddTwoInts #see what is inside the message (request and response)  
+cd ~/ros2_ws/src/my_py_pkg/my_py_pkg  
+touch add_two_ints_server.py  
+chmod +x add_two_ints_server.py  
+#### **Inside add_two_ints_server.py**  
+```Python
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from example_interfaces.srv import AddTwoInts
+
+class AddTwoIntsServerNode(Node): 
+    def __init__(self):
+        super().__init__("add_two_ints_server")
+        self.server_ = self.create_service(AddTwoInts, "add_two_ints", self.callback_add_two_ints) #Create a service server
+        self.get_logger().info("Add Twos Int started")
+
+    def callback_add_two_ints(self, request: AddTwoInts.Request, response: AddTwoInts.Response):
+        response.sum = request.a + request.b 
+        self.get_logger().info(f"{request.a} + {request.b} = {response.sum}")
+        return response
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = AddTwoIntsServerNode() 
+    rclpy.spin(node)
+    rclpy.shutdown()
+     
+     
+if __name__ == "__main__":
+    main()
+```
+cd ~/ros2_ws
+colcon build --packages-select my_py_pkg  
+source ~/.bashrc  
+ros2 run my_py_pkg add_two_ints_server  
+
+
+
+
 
