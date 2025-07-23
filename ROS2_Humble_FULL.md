@@ -9,6 +9,7 @@ ls -la #Show hidden files
 gedit #Edit certain file code  
 code . #Launch vs code from current directory of the terminal  
 ## **ROS2 Tools**  
+### **Setupping**
 ros2 <command_line> -h #Show arguments/commands of the command  
 colcon build #Must be inside the workspace first level (~/ros2_ws/)   
 colcon build --packages-select <package_name_1> <package_name_2> ...  #Build selected packages  
