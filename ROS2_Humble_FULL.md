@@ -351,6 +351,7 @@ if __name__ == "__main__":
 import rclpy
 from rclpy.node import Node
 from example_interfaces.srv import AddTwoInts
+from functools import partial
 
 class AddTwoIntsClient(Node):
     def __init__(self):
@@ -366,11 +367,11 @@ class AddTwoIntsClient(Node):
         request.b = b
 
         future = self.client_.call_async(request) # Send Request 
-        future.add_done_callback(self.callback_call_add_two_ints) # Register the callback
+        future.add_done_callback(partial(self.callback_call_add_two_ints, request=request)) # Register the callback
 
-    def callback_call_add_two_ints(self, future): # Get Reponse from callback
+    def callback_call_add_two_ints(self, future, request): # Get Reponse from callback
         response = future.result()
-        self.get_logger().info(f"Got response: {response.sum}")
+        self.get_logger().info(f"{request.a} + {request.b} = {response.sum}")
 
 def main(args=None):
     rclpy.init(args=args)
