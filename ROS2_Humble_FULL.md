@@ -276,7 +276,7 @@ ros2 topic pub -r 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0},
 - One message type for Request, one message type for Response
 - Can be writtten in Python, C++, .. directly inside ROS nodes
 - A service server can only exist once, bit can have many clients
-### **Python Service Server**  
+### **Write a Python Service Server**  
 ros2 interface show example_interfaces/srv/AddTwoInts #see what is inside the message (request and response)  
 cd ~/ros2_ws/src/my_py_pkg/my_py_pkg  
 touch add_two_ints_server.py  
@@ -313,7 +313,7 @@ cd ~/ros2_ws
 colcon build --packages-select my_py_pkg  
 source ~/.bashrc  
 ros2 run my_py_pkg add_two_ints_server  
-
+### **Write a Python Service Client with OOP**
 
 
 
