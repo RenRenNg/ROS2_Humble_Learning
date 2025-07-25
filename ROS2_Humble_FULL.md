@@ -386,7 +386,7 @@ def main(args=None):
 if __name__ == "__main__":
     main()
 ```  
-### **Remap a Servcie at Runtime**
+### **Remap a Service at Runtime**
 ros2 run my_py_pkg <server/client_file_name> --ros-args -r <service_name>:=<new_service_name> 
 
 ## **Create Custom ROS2 Interfaces (Msg and Srv)**  
