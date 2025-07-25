@@ -398,12 +398,26 @@ ros2 run my_py_pkg <server/client_file_name> --ros-args -r <service_name>:=<new_
 cd ~/ros2_ws/src  
 ros2 pkg create my_robot_interfaces  
 https://roboticsbackend.com/ros2-create-custom-message/  
-Inside package.xml > add  
+**Inside package.xml**  
+add the following:  
 ```xml
   <buildtool_depend>rosidl_default_generators</buildtool_depend>
   <exec_depend>rosidl_default_runtime</exec_depend>
   <member_of_group>rosidl_interface_packages</member_of_group>
 ```
 <img width="774" height="388" alt="image" src="https://github.com/user-attachments/assets/1f938388-e6f3-422f-bc68-d80c18a54e04" />
+
+**Inside CMakeList.txt**  
+Add the following  
+```txt
+find_package(rosidl_default_generators REQUIRED)
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "your custom interfaces will be here"
+  "one per line"
+  "no comma for separating lines"
+ )
+ament_export_dependencies(rosidl_default_runtime)
+```
+<img width="774" height="402" alt="image" src="https://github.com/user-attachments/assets/0fa79794-ffd0-43bd-9a8e-4f13b9b155bd" />
 
 
