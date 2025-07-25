@@ -398,7 +398,7 @@ ros2 run my_py_pkg <server/client_file_name> --ros-args -r <service_name>:=<new_
 cd ~/ros2_ws/src  
 ros2 pkg create my_robot_interfaces  
 https://roboticsbackend.com/ros2-create-custom-message/  
-**Inside package.xml**  
+#### **Inside package.xml**  
 add the following:  
 ```xml
   <buildtool_depend>rosidl_default_generators</buildtool_depend>
@@ -407,7 +407,7 @@ add the following:
 ```
 <img width="774" height="388" alt="image" src="https://github.com/user-attachments/assets/1f938388-e6f3-422f-bc68-d80c18a54e04" />
 
-**Inside CMakeList.txt**  
+#### **Inside CMakeList.txt**  
 Add the following  
 ```txt
 find_package(rosidl_default_generators REQUIRED)
