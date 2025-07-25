@@ -420,4 +420,7 @@ ament_export_dependencies(rosidl_default_runtime)
 ```
 <img width="774" height="402" alt="image" src="https://github.com/user-attachments/assets/0fa79794-ffd0-43bd-9a8e-4f13b9b155bd" />
 
-
+cd ~/ros2_ws/src/my_robot_interfaces  
+mkdir msg  
+cd ~/ros2_ws/src/my_robot_interfaces/msg  
+touch HardwareStatus.msg
