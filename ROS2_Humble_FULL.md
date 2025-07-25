@@ -391,4 +391,19 @@ ros2 run my_py_pkg <server/client_file_name> --ros-args -r <service_name>:=<new_
 
 ## **Create Custom ROS2 Interfaces (Msg and Srv)**  
 ### **What is ROS2 Interfaces**
+- Use primitive types to create a message definition
+- You can create a message definition using other message definitions
+- Existing interfaces: https://docs.ros.org/en/humble/Concepts/Basic/About-Interfaces.html, https://github.com/ros2/example_interfaces, https://github.com/ros2/common_interfaces  
+### **Create and Build Your first custom Msg**  
+cd ~/ros2_ws/src  
+ros2 pkg create my_robot_interfaces  
+https://roboticsbackend.com/ros2-create-custom-message/  
+Inside package.xml > add  
+```xml
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
+```
+<img width="774" height="388" alt="image" src="https://github.com/user-attachments/assets/1f938388-e6f3-422f-bc68-d80c18a54e04" />
+
 
