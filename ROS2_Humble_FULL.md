@@ -439,4 +439,4 @@ chmod +x hardware_status_publisher.py
 
 If the import code is not recongnise (grey colouring) > close vs code > source > cd ~/ros2_ws/src > code .  
 #### **Adding dependencies**
-package.xml > ' <depend>my_robot_interfaces</depend>'
+package.xml > `<depend>my_robot_interfaces</depend>`
