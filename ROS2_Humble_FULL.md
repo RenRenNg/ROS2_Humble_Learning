@@ -436,11 +436,6 @@ cd ~/ros2_ws/src/my_py_pkg/my_py_pkg
 touch hardware_status_publisher.py  
 chmod +x hardware_status_publisher.py  
 #### **Inside hardware_status_publisher.py**
-
-If the import code is not recongnise (grey colouring) > close vs code > source > cd ~/ros2_ws/src > code .  
-#### **Adding dependencies**
-package.xml > `<depend>my_robot_interfaces</depend>`
-#### **Setup.py**  
 ```python
 #!/usr/bin/env python3
 import rclpy
@@ -470,5 +465,10 @@ def main(args=None):
      
 if __name__ == "__main__":
     main()
-```
+```  
+If the import code is not recongnise (grey colouring) > close vs code > source > cd ~/ros2_ws/src > code .  
+#### **Adding dependencies**
+package.xml > `<depend>my_robot_interfaces</depend>`
+#### **Setup.py**  
+"hw_status_publisher = my_py_pkg.hardware_status_publisher:main"  
 Build and run  
