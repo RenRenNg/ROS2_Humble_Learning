@@ -431,5 +431,12 @@ string debug_message
 colcon build --packages-select my_robot_interfaces  
 source install/setup.bash  
 ros2 interface show my_robot_interfaces/msg/HardwareStatus   
+### **Use Your Custom Msg in a Python Node**  
+cd ~/ros2_ws/src/my_py_pkg/my_py_pkg  
+touch hardware_status_publisher.py  
+chmod +x hardware_status_publisher.py  
+#### **Inside hardware_status_publisher.py**
 
-
+If the import code is not recongnise (grey colouring) > close vs code > source > cd ~/ros2_ws/src > code .  
+#### **Adding dependencies**
+package.xml > ' <depend>my_robot_interfaces</depend>'
