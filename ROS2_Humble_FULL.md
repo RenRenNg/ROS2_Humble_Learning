@@ -424,3 +424,12 @@ cd ~/ros2_ws/src/my_robot_interfaces
 mkdir msg  
 cd ~/ros2_ws/src/my_robot_interfaces/msg  
 touch HardwareStatus.msg
+#### **Inside HardwareStatus.msg**  
+float64 temperature  
+bool are_motors_ready  
+string debug_message  
+colcon build --packages-select my_robot_interfaces  
+source install/setup.bash  
+ros2 interface show my_robot_interfaces/msg/HardwareStatus   
+
+
