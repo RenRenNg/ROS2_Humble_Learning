@@ -22,16 +22,16 @@ source install/setup.bash
 #### **Running**  
 ros2 run <package_name> <executable_node_name>  
 #### **Introspecting & Troublshooting**  
-ros2 node list #Show list of nodes running
-ros2 node info <node_name> #Show info of the node 
-ros2 topic list #Show list of topics running  
-ros2 topic echo <topic_name> #Show output of topic  
-ros2 topic info <topic_name> #Show msg type, publisher and subscription count  
-ros2 interface show <msg_type> #Show what is inside the msg    
-ros2 topic hz <topic_name> #Show rate of msg publish  
-ros2 topic bw <topic_name> #Show how much data is sent  
-rqt_graph #Graphical representation of the nodes, topics and networks  
-#### **Recording & Playing**  
+ros2 node list #Show list of nodes running  
+ros2 node info <node_name> #Show info of the node    
+ros2 topic list #Show list of topics running     
+ros2 topic echo <topic_name> #Show output of topic    
+ros2 topic info <topic_name> #Show msg type, publisher and subscription count    
+ros2 interface show <msg_type> #Show what is inside the msg      
+ros2 topic hz <topic_name> #Show rate of msg publish    
+ros2 topic bw <topic_name> #Show how much data is sent    
+rqt_graph #Graphical representation of the nodes, topics and networks    
+#### **Recording & Playing**   
 ros2 bag record <topic_name> #Record data for that topic until ctrl + c  
 ros2 bag record <topic_name1> <topic_name2> #Record multiple data for that topic until ctrl + c  
 ros2 bag record -a #Record all data for that topic until ctrl + c  
