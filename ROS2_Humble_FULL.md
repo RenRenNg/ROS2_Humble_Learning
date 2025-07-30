@@ -27,10 +27,12 @@ ros2 node info <node_name> #Show info of the node
 ros2 topic list #Show list of topics running     
 ros2 topic echo <topic_name> #Show output of topic    
 ros2 topic info <topic_name> #Show msg type, publisher and subscription count    
-ros2 interface show <msg_type> #Show what is inside the msg      
+ros2 interface show <msg_type, srv_type, action_type> #Show what is inside the msg      
 ros2 topic hz <topic_name> #Show rate of msg publish    
 ros2 topic bw <topic_name> #Show how much data is sent    
-rqt_graph #Graphical representation of the nodes, topics and networks    
+ros2 interface list # List all of the interfaces  
+ros2 interface package <package_name> #Show all interface of that package   
+rqt_graph # Graphical representation of the nodes, topics and networks    
 #### **Recording & Playing**   
 ros2 bag record <topic_name> #Record data for that topic until ctrl + c  
 ros2 bag record <topic_name1> <topic_name2> #Record multiple data for that topic until ctrl + c  
@@ -489,6 +491,6 @@ cd ~/ros2_ws
 colcon build --packages-select my_robot_interfaces   
 source ~/.bashrc  
 ros2 interface show my_robot_interfaces/srv/ComputeRectangleArea  
-### **Introspect interfaces with the ros2 command line**  
+
 
 
