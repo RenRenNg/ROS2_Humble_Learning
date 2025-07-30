@@ -21,7 +21,7 @@ source ~/.bashrc
 source install/setup.bash  
 #### **Running**  
 ros2 run <package_name> <executable_node_name>  
-#### **Introspecting & Troublshooting**  
+#### **Introspecting & Troublshooting **  
 ros2 node list #Show list of nodes running  
 ros2 node info <node_name> #Show info of the node    
 ros2 topic list #Show list of topics running     
@@ -472,3 +472,23 @@ package.xml > `<depend>my_robot_interfaces</depend>`
 #### **Setup.py**  
 "hw_status_publisher = my_py_pkg.hardware_status_publisher:main"  
 Build and run  
+### **Create and Build your first Custom Srv**  
+cd ~/ros2_ws/src/my_robot_interfaces/srv  
+touch ComputeRectangleArea.srv  
+#### **Inside ComputeRectangeArea.srv**  
+cd ~/ros2_ws/src/my_robot_interfaces/srv  
+touch ComputeRectangleArea.srv  
+```srv
+float64 length
+float64 width
+---
+float64 area
+```
+Into CMakeList.txt > under rosidl_generate_interfaces(${PROJECT_NAME} > Add "srv/ComputeRectangleArea.srv"  
+cd ~/ros2_ws  
+colcon build --packages-select my_robot_interfaces   
+source ~/.bashrc  
+ros2 interface show my_robot_interfaces/srv/ComputeRectangleArea  
+### **Introspect interfaces with the ros2 command line**  
+
+
