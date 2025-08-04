@@ -47,7 +47,9 @@ ros2 service type <service_name> # Show interface
 ros2 service call <service_name> <interface_name> <request> # Provide request for a service ONLY WORK FOR SIMPLE REQUEST  
 rqt > plugins > service caller to send simple request   
 #### **Parameters**  
-ros2 param list #Show list of parameters
+ros2 param list #Show list of parameters  
+ros2 <package_name> <file_name> --ros-args -p <parameter_name1>:=<value_> -p <parameter_name2>:=<value_> #Set new parameter value at run time   
+ros2 param get /<node_name> <parameter_name>   
 
 ## **OOP Template for Your Nodes**  
 ```python
