@@ -50,7 +50,7 @@ rqt > plugins > service caller to send simple request
 #### **Parameters**  
 ros2 param list #Show list of parameters  
 ros2 <package_name> <file_name> --ros-args -p <parameter_name1>:=<value_> -p <parameter_name2>:=<value_> #Set new parameter value at run time   
-ros2 param get /<node_name> <parameter_name> # Get value inside the parameters  
+ros2 param get /<node_name> <parameter_name> #Get value inside the parameters  
 ros2 run <package_name> <file_name> --ros-args -r __node:=<node_name> --params-file ~/yaml_params/number_params.yaml #Make the node name use the params of the params file    
 
 ## **OOP Template for Your Nodes**  
