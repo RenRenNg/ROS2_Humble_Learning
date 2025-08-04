@@ -45,7 +45,9 @@ ros2 bag play <file_name> #Play recorded file to see data topic needs to be subs
 ros2 service list # Show list of services   
 ros2 service type <service_name> # Show interface  
 ros2 service call <service_name> <interface_name> <request> # Provide request for a service ONLY WORK FOR SIMPLE REQUEST  
-rqt > plugins > service caller to send simple request  
+rqt > plugins > service caller to send simple request   
+#### **Parameters**  
+ros2 param list #Show list of parameters
 
 ## **OOP Template for Your Nodes**  
 ```python
