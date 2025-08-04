@@ -54,7 +54,9 @@ ros2 param list #Show list of parameters
 ros2 <package_name> <file_name> --ros-args -p <parameter_name1>:=<value_> -p <parameter_name2>:=<value_> #Set new parameter value at run time   
 ros2 param get /<node_name> <parameter_name> #Get values inside the parameters  
 ros2 run <package_name> <file_name> --ros-args -r __node:=<node_name> --params-file ~/yaml_params/number_params.yaml #Make the node name use the params of the params file    
-ros2 param set /<node_name> <param_name> <new_value> #Set the param to a new value while code is running WITH PARAMETER CALLBACK FUNCTION  
+ros2 param set /<node_name> <param_name> <new_value> #Set the param to a new value while code is running WITH PARAMETER CALLBACK FUNCTION   
+#### **Adding namespaces**
+ros2 run <pkg_name> <file_name> --ros-args -r __ns:=/<name_of_namespace>   
 
 ## **OOP Template for Your Nodes**  
 ```python
@@ -584,4 +586,84 @@ create number_app.launch.xml under launch file
 #### **Add dependencies**    
 Add > `<exec_depend>my_py_pkg</exec_depend>` > below `<buildtool_depend>ament_cmake</buildtool_depend>` > save  
 Build & Source
-ros2 launch my_robot_bringup number_app.launch.xml  
+#### **Inside number_app.launch.xml**
+```xml
+<launch>
+    <node pkg="my_py_pkg" exec="number_publisher" />
+    <node pkg="my_py_pkg" exec="number_counter" />
+</launch>
+```   
+ros2 launch my_robot_bringup number_app.launch.xml   
+### **Remapping Launch file**  
+Changing node_name and topic_name  
+```xml
+<launch>
+    <!-- name="new_node_name" change the node name to a new assigned one-->
+    <node pkg="my_py_pkg" exec="number_publisher" name="my_number_publisher">
+        <remap from="/number" to="/my_number"/> <!-- change topic name to new topic name-->
+    </node>
+    <node pkg="my_py_pkg" exec="number_counter" name="my_number_counter"/>
+        <remap from="/number" to="/my_number"/>
+    </node>
+
+</launch>
+```  
+### **Load Parameter file into Launch file**  
+Changing param name and value directly  
+#### **Inside number_app.launch.xml**  
+```xml
+<launch>
+    <!-- name="new_node_name" change the node name to a new assigned one-->
+    <node pkg="my_py_pkg" exec="number_publisher3" name="my_number_publisher">
+        <remap from="/number" to="/my_number"/> <!-- change topic name to new topic name-->
+        <param name="number" value="6"/>
+        <param name="time_period" value="1.5"/>
+    </node>
+
+    <node pkg="my_py_pkg" exec="number_counter" name="my_number_counter">
+        <remap from="/number" to="/my_number"/>
+    </node>
+
+</launch>
+```
+
+cd ~/ros2_ws/src/my_robot_bringup
+mkdir config
+inside CMakeList.txt > add config
+```txt
+install(DIRECTORY
+  launch config
+  DESTINATION share/${PROJECT_NAME}/
+)
+```  
+cd ~/ros2_ws/src/my_robot_bringup/config  
+touch number_app.yaml  
+#### **Inside number_app.yaml**
+```yaml
+/my_number_publsiher:
+  ros__parameters:
+    number: 6
+    timer_period: 1.5
+```  
+### **Add nanmespaces to your nodes**  
+ros2 run my_py_pkg number_publisher --ros-args -r __ns:=/test  
+You will see that the node will have test.number_publisher.  
+The name is added in front of the node name, topic name and etc names.  
+If you provide a leading / to a name, it means it cannot be change.  
+Usually for different robot using the same applications, each robot each namespace.  
+#### **Namespaces in launch file**   
+```xml
+<launch>
+    <!-- namespace to give an additional name to the node-->
+    <node pkg="my_py_pkg" exec="number_publisher3" name="my_number_publisher" namespace="/abc">
+        <remap from="number" to="my_number"/> <!-- remove / else the topic name will not change to /abc/topic_name-->
+        <param from="$(find-pkg-share my_robot_bringup)/config/number_app.yaml" />
+    </node>
+
+    <node pkg="my_py_pkg" exec="number_counter" name="my_number_counter" namespace="/abc">
+        <remap from="number" to="my_number"/>
+    </node>
+
+</launch>
+```
+
