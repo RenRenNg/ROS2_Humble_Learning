@@ -608,7 +608,7 @@ Changing node_name and topic_name
 
 </launch>
 ```  
-### **Load Parameter file into Launch file**  
+### **Add Parameter into Launch file**  
 Changing param name and value directly  
 #### **Inside number_app.launch.xml**  
 ```xml
@@ -627,6 +627,7 @@ Changing param name and value directly
 </launch>
 ```
 
+### **Load Parameter file into Launch file**   
 cd ~/ros2_ws/src/my_robot_bringup
 mkdir config
 inside CMakeList.txt > add config
@@ -644,6 +645,21 @@ touch number_app.yaml
   ros__parameters:
     number: 6
     timer_period: 1.5
+```
+#### **Inside number_app.launch.xml**
+```xml
+<launch>
+    <!-- name="new_node_name" change the node name to a new assigned one-->
+    <node pkg="my_py_pkg" exec="number_publisher3" name="my_number_publisher" namespace="/abc">
+        <remap from="/number" to="/my_number"/> <!-- change topic name to new topic name-->
+        <param from="$(find-pkg-share my_robot_bringup)/config/number_app.yaml" />
+    </node>
+
+    <node pkg="my_py_pkg" exec="number_counter" name="my_number_counter">
+        <remap from="/number" to="/my_number"/>
+    </node>
+
+</launch>
 ```  
 ### **Add nanmespaces to your nodes**  
 ros2 run my_py_pkg number_publisher --ros-args -r __ns:=/test  
