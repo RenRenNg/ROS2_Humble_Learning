@@ -52,6 +52,7 @@ ros2 param list #Show list of parameters
 ros2 <package_name> <file_name> --ros-args -p <parameter_name1>:=<value_> -p <parameter_name2>:=<value_> #Set new parameter value at run time   
 ros2 param get /<node_name> <parameter_name> #Get values inside the parameters  
 ros2 run <package_name> <file_name> --ros-args -r __node:=<node_name> --params-file ~/yaml_params/number_params.yaml #Make the node name use the params of the params file    
+ros2 param set /<node_name> <param_name> <new_value> #Set the param to a new value while code is running WITH PARAMETER CALLBACK FUNCTION  
 
 ## **OOP Template for Your Nodes**  
 ```python
@@ -537,4 +538,8 @@ node name obtained from ros2 node list
 params names obtained from ros2 param list   
 ros2 run my_py_pkg number_publisher2 --ros-args --params-file ~/yaml_params/number_params.yaml   
 ros2 run my_py_pkg number_publisher2 --ros-args -r __node:=number_publisher3 --params-file ~/yaml_params/number_params.yaml  #get the parameters of number_publisher3  
-
+### **Parameter Callback**  
+Create a function for parameter callback in the code  
+Run code  
+ros2 param set <param_name> <new_value> #Change the params of the running code and callback will update it
+Without param callback it cannot update/set the new parameter value while running the code  
