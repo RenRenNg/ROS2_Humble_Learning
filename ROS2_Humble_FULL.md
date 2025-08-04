@@ -532,9 +532,9 @@ gedit number_params.yaml
     number2: 3
     timer_period: 3.0
 ```
-node names must make to get the specific parameters 
-node name obtained from ros2 node list  
-params names obtained from ros2 param list  
+node names must make to get the specific parameters   
+node name obtained from ros2 node list   
+params names obtained from ros2 param list   
 ros2 run my_py_pkg number_publisher2 --ros-args --params-file ~/yaml_params/number_params.yaml   
 ros2 run my_py_pkg number_publisher2 --ros-args -r __node:=number_publisher3 --params-file ~/yaml_params/number_params.yaml  #get the parameters of number_publisher3  
 
