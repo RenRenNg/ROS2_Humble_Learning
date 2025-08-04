@@ -51,6 +51,7 @@ rqt > plugins > service caller to send simple request
 ros2 param list #Show list of parameters  
 ros2 <package_name> <file_name> --ros-args -p <parameter_name1>:=<value_> -p <parameter_name2>:=<value_> #Set new parameter value at run time   
 ros2 param get /<node_name> <parameter_name>   
+ros2 run my_py_pkg <file_name> --ros-args -r __node:=<node_name> --params-file ~/yaml_params/number_params.yaml #Make the node name use the params of the params file    
 
 ## **OOP Template for Your Nodes**  
 ```python
@@ -512,8 +513,28 @@ ros2 interface show my_robot_interfaces/srv/ComputeRectangleArea
 Parameters are usually added before the publisher/subscriber etc.    
 Two steps process:  
 - Declare parameter  
-- Get parameter back
-
-
-
+- Get parameter back  
+### **YAML Parameter files**  
+cd ~  
+mkdir yaml_params  
+cd ~/yaml_params  
+touch number_params.yaml  
+gedit number_params.yaml  
+#### **Inside number_params.yaml**  
+```yaml
+/number_publisher2:
+  ros__parameters:
+    number2: 5
+    timer_period: 2.0
+    
+/number_publisher3:
+  ros__parameters:
+    number2: 3
+    timer_period: 3.0
+```
+node names must make to get the specific parameters 
+node name obtained from ros2 node list  
+params names obtained from ros2 param list  
+ros2 run my_py_pkg number_publisher2 --ros-args --params-file ~/yaml_params/number_params.yaml   
+ros2 run my_py_pkg number_publisher2 --ros-args -r __node:=number_publisher3 --params-file ~/yaml_params/number_params.yaml  #get the parameters of number_publisher3  
 
