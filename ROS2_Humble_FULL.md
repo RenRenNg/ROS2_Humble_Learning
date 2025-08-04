@@ -661,7 +661,7 @@ touch number_app.yaml
 
 </launch>
 ```  
-### **Add nanmespaces to your nodes**  
+### **Add namespaces to your nodes**  
 ros2 run my_py_pkg number_publisher --ros-args -r __ns:=/test  
 You will see that the node will have test.number_publisher.  
 The name is added in front of the node name, topic name and etc names.  
