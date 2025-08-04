@@ -273,7 +273,7 @@ ros2 show interface <msg_type> #See what is inside the msg
 #### **Creating a publisher from the terminal**  
 ros2 topic pub -r 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0}, angular: {z: 1.0}}"  
 
-## **ROS2 Services - Client/Serer Comms between Nodes**  
+## **ROS2 Services - Client/Server Comms between Nodes**  
 ### **What is ROS2 Service?**  
 - Client/Server system
 - Synchronous or asynchronous
@@ -491,6 +491,24 @@ cd ~/ros2_ws
 colcon build --packages-select my_robot_interfaces   
 source ~/.bashrc  
 ros2 interface show my_robot_interfaces/srv/ComputeRectangleArea  
+
+## **Change node settings at runtime with ROS2 Parameters**   
+### **What is ROS2 Parameters?**  
+- Settings for your nodes, value set at run time
+- A parameter is specific to a node  
+- ROS2 Parameter types
+- Boolean
+- Int
+- Double
+- String
+- Lists
+- ...
+### **Using Parameters in Your Python Nodes**   
+Parameters are usually added before the publisher/subscriber etc.    
+Two steps process:  
+- Declare parameter  
+- Get parameter back
+
 
 
 
