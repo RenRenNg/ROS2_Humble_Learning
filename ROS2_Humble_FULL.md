@@ -21,6 +21,8 @@ source ~/.bashrc
 source install/setup.bash  
 #### **Running**  
 ros2 run <package_name> <executable_node_name>  
+#### **Launching**  
+ros2 launch <package_name> <launch_file_name>  
 #### **Introspecting & Troublshooting **  
 ros2 node list #Show list of nodes running  
 ros2 node info <node_name> #Show info of the node    
@@ -542,4 +544,44 @@ ros2 run my_py_pkg number_publisher2 --ros-args -r __node:=number_publisher3 --p
 Create a function for parameter callback in the code  
 Run code  
 ros2 param set <param_name> <new_value> #Change the params of the running code and callback will update it
-Without param callback it cannot update/set the new parameter value while running the code  
+Without param callback it cannot update/set the new parameter value while running the code   
+## **ROS2 Launch file to scale your Application**   
+### **What is ROS2 Launch File**  
+Launch file is used to start and configure multiple nodes and other processes in a structured, automated way.  
+Launch files allow you to:  
+- Start multiple ROS 2 nodes simultaneously (including the same nodes multiple times)
+- Set node parameters (e.g. robot name, sensor frequency
+- Remap topics
+- Control namespaces
+- Load RViz, Gazebo, or other tools with your nodes
+### **Create and Install a Lanuch File**  
+cd ros2_ws/src/  
+ros2 pkg create my_robot_bringup  
+rm -r include/ src/  
+mkdir launch  
+#### **Setup**  
+##### **Inside CMakeList.txt**  
+```txt  
+cmake_minimum_required(VERSION 3.8)
+project(my_robot_bringup)
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+# find dependencies
+find_package(ament_cmake REQUIRED)
+
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}/
+)
+
+ament_package()
+```
+create number_app.launch.xml under launch file  
+
+#### **Add dependencies**    
+Add > `<exec_depend>my_py_pkg</exec_depend>` > below `<buildtool_depend>ament_cmake</buildtool_depend>` > save  
+Build & Source
+ros2 launch my_robot_bringup number_app.launch.xml  
