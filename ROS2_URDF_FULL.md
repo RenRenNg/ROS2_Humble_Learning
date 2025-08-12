@@ -43,3 +43,9 @@ How to create TF with ROS?
 - Then you dont need to implement TF directly. Instead, you'll create a URDF file and use existing ROS packages  
 ## **Create a URDF for a Robot**  
 ### **Intro - What is URDF?**  
+Unified Robot Description Format (URDF)  
+- Description of all the elements in the robot
+- Used to generate TFs  
+- XML format  
+Most important thing to get:
+- How to assemble 2 parts (links) together of the robot with a joint
