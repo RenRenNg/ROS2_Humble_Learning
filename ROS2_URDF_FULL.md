@@ -29,4 +29,15 @@ Back to the TF:
 While the Rviz is running  
 ros2 topic list > /tf   
 ros2 topic echo /tf #Show all the TFs
-
+### **What problem are we tryng to solve with TF?**  
+What we try to achieve with TFs:  
+- Keep a structured tree for all joints/frames over time  
+We want to know:  
+- How frames are placed relative to one another  
+- How thry move relative to each other  
+How to compute TransForms?  
+- We need to keep track of each frame relative to other frames  
+- Solutions: ROS TF functionality  
+How to create TF with ROS?
+- Understanding TF is the most important
+- Then you dont need to implement TF directly. Instead, you'll create a URDF file and use existing ROS packages  
