@@ -25,7 +25,7 @@ RobotModel > Links > Show all links of the robot
 Back to the TF:  
 **Are the links between the axes specifically with respect to which link**  
 **And how they move relative to each other**  
-### **Relationship between TFs. TF tree**  
+### **Relationship between TFs, TF tree**  
 While the Rviz is running  
 ros2 topic list > /tf   
 ros2 topic echo /tf #Show all the TFs
