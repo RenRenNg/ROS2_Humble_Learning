@@ -74,7 +74,7 @@ code my_robot.urdf
                 <!-- A box shape with dimensions L x W x H in metres -->
                 <box size="0.6 0.4 0.2" /> 
             </geometry>
-            <!-- Coordinates in xyz andd roll, pitch, yaw -->
+            <!-- Coordinates in xyz and roll, pitch, yaw -->
             <origin xyz="0 0 0.1" rpy="0 0 0" />
         </visual>
     </link>
