@@ -1,6 +1,12 @@
 # **ROS2 - TF|URDF|RViz|Gazebo**
-
+## **Rviz2 Notes**
+### **Axes**  
+x axis: red (forward)  
+y axis: green (left)  
+z axis: blue (upward)  
+Right hand rule  
 ## **Intro to TF (TransForm)**
+### **Intro**  
 cd ~  
 sudo apt install ros-humble-urdf-tutorial  
 source /opt/ros/humble/setup.bash or source ~/.bashrc (if you have place the source command inside bashrc)  
