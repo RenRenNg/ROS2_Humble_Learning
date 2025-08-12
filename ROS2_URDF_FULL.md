@@ -46,6 +46,7 @@ How to create TF with ROS?
 Unified Robot Description Format (URDF)  
 - Description of all the elements in the robot
 - Used to generate TFs  
-- XML format  
+- XML format
+
 Most important thing to get:
 - How to assemble 2 parts (links) together of the robot with a joint
