@@ -63,6 +63,7 @@ Most important thing to get:
 ### **Your first URDF file: Create and Visualise a Link**  
 cd ~  
 touch my_robot.urdf  
+code my_robot.urdf  
 #### **Inside my_robot.urdf**  
 ```xml
 <?xml version="1.0"?>
