@@ -80,6 +80,8 @@ code my_robot.urdf
     </link>
 </robot>
 ```
+Save  
+ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf  
 ### **Material - Add some colours**  
 Defining and assigning colours    
 ```xml
@@ -112,6 +114,10 @@ Defining and assigning colours
         </visual>
     </link>
 </robot>
-```  
+```
+Save  
+ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf  
+### **Combine 2 Links with a Joint**  
+
  
 
