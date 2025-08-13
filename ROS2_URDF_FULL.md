@@ -116,8 +116,30 @@ Defining and assigning colours
 </robot>
 ```
 Save  
-ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf  
-### **Combine 2 Links with a Joint**  
+ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf    
+### **Combine 2 Links with a Joint**    
+When naming the joint have the convention to use the name of the 2 elements and combine them together. (e.g. base_lidar_joint)   
+Useful tip:  
+- Fix the origin of the joint
+- Fix the axis
+- Fix origin of the link if needed
+```xml
+    <link name="lidar_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+            <origin xyz="0.0 0 0" rpy="0 0 0" />
+            <material name="white"/>
+        </visual>
+    </link>
 
- 
+    <!-- Add relationship between the links -->
+    <joint name="base_lidar_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="lidar_link"/>
+        <!-- Change this to fix where it sit on the robot. If not enough change the link origins. -->
+        <origin xyz="0.0 0 0.225" rpy="0 0 0" />
+    </joint>
+```  
 
