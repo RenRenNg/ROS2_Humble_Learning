@@ -12,7 +12,16 @@ ros2 run tf2_tools view_frames #Produce a pdf of the list of transform between l
 ```xml
 <?xml version="1.0"?>
 <robot name="my_robot">
-  <!-- elements of the robot-->
+  <link name="base_link">
+        <visual>
+            <geometry>
+                <!-- A box shape with dimensions L x W x H in metres -->
+                <box size="0.6 0.4 0.2" /> 
+            </geometry>
+            <!-- Coordinates in xyz and roll, pitch, yaw -->
+            <origin xyz="0 0 0.1" rpy="0 0 0" />
+        </visual>
+    </link>
 </robot> 
 ```  
 
