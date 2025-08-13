@@ -81,6 +81,7 @@ code my_robot.urdf
 </robot>
 ```
 ### **Material - Add some colours**  
+Defining and assigning colours    
 ```xml
 <?xml version="1.0"?>
 <robot name="my_robot">
