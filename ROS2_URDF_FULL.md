@@ -80,4 +80,37 @@ code my_robot.urdf
     </link>
 </robot>
 ```
+### **Material - Add some colours**  
+```xml
+<?xml version="1.0"?>
+<robot name="my_robot">
+
+    <!-- Defining colours -->
+    <material name="grey">
+        <color rgba="0.7 0.7 0.7 1"/>
+    </material>
+
+    <material name="green">
+        <color rgba="0 0.6 0 1"/>
+    </material>
+
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <!-- A box shape with dimensions L x W x H in metres -->
+                <box size="0.6 0.4 0.2" /> 
+            </geometry>
+            <!-- Coordinates in xyz andd roll, pitch, yaw -->
+            <origin xyz="0.0 0 0.1" rpy="0 0 0" />
+            <!-- Assign colour to object -->
+            <material name="green"/>
+        </visual>
+    </link>
+</robot>
+```  
  
+
