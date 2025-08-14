@@ -1,4 +1,5 @@
 # **ROS2 - TF|URDF|RViz|Gazebo**  
+https://wiki.ros.org/urdf/XML #Useful doc on urdf properties  
 ## **Rviz2 Notes**  
 ### **Axes**  
 x axis: red (forward)  
