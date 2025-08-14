@@ -9,6 +9,8 @@ Right hand rule
 ### **TF Tools**  
 sudo aot install ros-humble-tf2-tools #Required only If package not install  
 ros2 run tf2_tools view_frames #Produce a pdf of the list of transform between links. File found on where the command is used. (Good for troublshooting joints)  
+### **URDF Tools**  
+ros2 launch urdf_tutorial display.launch.py model:=/PATH/ROBOT_FILENAME.urdf  
 ### **Template for URDF**  
 ```xml
 <?xml version="1.0"?>
