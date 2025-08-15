@@ -168,6 +168,19 @@ ros2 node list > see /robot_state_publisher
 ros2 param list /robot_state_publisher > see robot description  
 ros2 param get /robot_state_publisher robot_description > URDF of the file  
 ros2 topic echo /joint_states > Shows the joint state of the of robot    
-<img width="1131" height="374" alt="image" src="https://github.com/user-attachments/assets/f89b9810-bf58-4094-a37c-3231498cdd27" />  
+<img width="1131" height="374" alt="image" src="https://github.com/user-attachments/assets/f89b9810-bf58-4094-a37c-3231498cdd27" />    
+### **Run the Robot State Publisher with URDF in the Terminal**  
+ros2 run robot_state_publisher robot_state_publisher --ros-args -p robot_description:="$(xacro my_robot.urdf)"  
+sudo apt install ros-humble-xacro (if missing package)  
+rqt_graph  
+<img width="856" height="205" alt="image" src="https://github.com/user-attachments/assets/83668720-256c-4166-a215-05d25d2de080" />  
+ros2 run joint_state_publisher_gui joint_state_publisher_gui   
+sudo apt install ros-humble-joint-state-publisher-gui (if missing package)  
+<img width="1033" height="203" alt="image" src="https://github.com/user-attachments/assets/97ac1d74-2f00-4a8a-aa01-c64fa883ee68" />  
+ros2 run rviz2 rviz2 > add robotmodel & TF > Global options > Fixed frame > base_footprint  
+robotmodel > Description Topic > select /robot_description   
+
+
+
 
 
