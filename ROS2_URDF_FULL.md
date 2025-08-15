@@ -159,3 +159,14 @@ When naming the joint have the convention to use the name of the 2 elements and 
 Create and package a ROS2 package application, around URDF  
 This process can be applied to any robot  
 
+### **How the Robot State Publisher and URDF Work Together**  
+ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf  
+rqt_graph 
+<img width="1324" height="134" alt="image" src="https://github.com/user-attachments/assets/f47bd607-2ce1-4629-914c-44f201194be0" />  
+ros2 topic list > see /tf  
+ros2 node list > see /robot_state_publisher  
+ros2 param list /robot_state_publisher > see robot description  
+ros2 param get /robot_state_publisher robot_description > URDF of the file  
+
+
+
