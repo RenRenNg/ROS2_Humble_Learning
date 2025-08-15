@@ -6,7 +6,7 @@ x axis: red (forward)
 y axis: green (left)  
 z axis: blue (upward)  
 Right hand rule  
-### **Setting the Joints/Links**  
+### **Setting the Joints/Links for TFs**  
 - Fix the origin of the joint
 - Fix the axis of the joint
 - Fix origin of the link if needed  
