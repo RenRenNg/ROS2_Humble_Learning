@@ -129,7 +129,7 @@ ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/my_robot.urdf
 When naming the joint have the convention to use the name of the 2 elements and combine them together. (e.g. base_lidar_joint)   
 **Useful tip:**  
 - Fix the origin of the joint
-- Fix the axis
+- Fix the axis of the joint
 - Fix origin of the link if needed
 ```xml
     <link name="lidar_link">
