@@ -167,6 +167,7 @@ ros2 topic list > see /tf
 ros2 node list > see /robot_state_publisher  
 ros2 param list /robot_state_publisher > see robot description  
 ros2 param get /robot_state_publisher robot_description > URDF of the file  
-
+ros2 topic echo /joint_states > Shows the joint state of the of robot    
+<img width="1131" height="374" alt="image" src="https://github.com/user-attachments/assets/f89b9810-bf58-4094-a37c-3231498cdd27" />  
 
 
