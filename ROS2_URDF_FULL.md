@@ -154,4 +154,8 @@ When naming the joint have the convention to use the name of the 2 elements and 
         <origin xyz="0.0 0 0.225" rpy="0 0 0" />
     </joint>
 ```  
+## **Broadcast TFs with the Robot State Publisher**  
+### **Intro**  
+Create and package a ROS2 package application, around URDF  
+This process can be applied to any robot  
 
