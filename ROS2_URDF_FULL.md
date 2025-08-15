@@ -6,6 +6,10 @@ x axis: red (forward)
 y axis: green (left)  
 z axis: blue (upward)  
 Right hand rule  
+### **Setting the Joints/Links**  
+- Fix the origin of the joint
+- Fix the axis of the joint
+- Fix origin of the link if needed  
 ### **TF Tools**  
 sudo aot install ros-humble-tf2-tools #Required only If package not install  
 ros2 run tf2_tools view_frames #Produce a pdf of the list of transform between links. File found on where the command is used. (Good for troublshooting joints)  
