@@ -178,6 +178,7 @@ ros2 run robot_state_publisher robot_state_publisher --ros-args -p robot_descrip
 sudo apt install ros-humble-xacro (if missing package)  
 rqt_graph  
 <img width="856" height="205" alt="image" src="https://github.com/user-attachments/assets/83668720-256c-4166-a215-05d25d2de080" />  
+Nothing is publishing to joint_state topic.  
 ros2 run joint_state_publisher_gui joint_state_publisher_gui   
 sudo apt install ros-humble-joint-state-publisher-gui (if missing package)  
 <img width="1033" height="203" alt="image" src="https://github.com/user-attachments/assets/97ac1d74-2f00-4a8a-aa01-c64fa883ee68" />  
