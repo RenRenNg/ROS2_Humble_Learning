@@ -184,6 +184,7 @@ sudo apt install ros-humble-joint-state-publisher-gui (if missing package)
 <img width="1033" height="203" alt="image" src="https://github.com/user-attachments/assets/97ac1d74-2f00-4a8a-aa01-c64fa883ee68" />  
 ros2 run rviz2 rviz2 > add robotmodel & TF > Global options > Fixed frame > base_footprint  
 robotmodel > Description Topic > select /robot_description   
+### **Create a Robot Description Package to Install the URDF**    
 
 
 
