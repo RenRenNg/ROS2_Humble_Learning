@@ -228,6 +228,10 @@ touch display.launch.xml
   <node pkg="rviz2" exec="rviz2" output="screen" name="rviz2"/>
 </launch>
 ```
+Add TF  
+Add robotmodel > description topic > robot_description  
+Global options > Fixed Frame > base_footprint  
+
 
 
 
