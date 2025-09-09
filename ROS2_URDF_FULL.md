@@ -185,7 +185,30 @@ sudo apt install ros-humble-joint-state-publisher-gui (if missing package)
 ros2 run rviz2 rviz2 > add robotmodel & TF > Global options > Fixed frame > base_footprint  
 robotmodel > Description Topic > select /robot_description   
 ### **Create a Robot Description Package to Install the URDF**    
-
+cd ~/ros2_ws/src  
+ros2 pkg create my_robot_description 
+rm -rf include/ src/  
+mkdir urdf  
+cd ~  
+mv my_robot.urdf ros2_ws/src/my_robot_description/urdf/  
+cd ~/ros2_ws  
+colcon build  
+source install/setup.bash  
+cd ~/ros2_ws/src  
+code . 
+#### **Inside CMakeList**  
+add  
+```
+install(
+  DIRECTORY urdf
+  DESTINATION share/${project_name}/
+)
+```  
+cd ~/ros2_ws  
+colcon build  
+source install/setup.bash 
+~/ros2_ws/install/my_robot_description/share  
+ls > urdf package  
 
 
 
