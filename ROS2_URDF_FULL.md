@@ -209,6 +209,25 @@ colcon build
 source install/setup.bash 
 ~/ros2_ws/install/my_robot_description/share  
 ls > urdf package  
+### **Write a Launch file to start the Robot State Publisher with URDF(XML)**   
+cd ~/ros2_ws/src/my_robot_description  
+mkdir launch
+cd launch  
+touch display.launch.xml  
+#### **Inside display.launch.xml**  
+```xml
+<launch>
+  <arg name="model" default="$(find-pkg-share my_robot_description)/urdf/my_robot.urdf"/>
+
+  <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher">
+    <param name="robot_description" value="$(command 'xacro $(var model)')"/>
+  </node>
+
+  <node pkg="joint_state_publisher_gui" exec="joint_state_publisher_gui" name="joint_state_publisher_gui"/>
+
+  <node pkg="rviz2" exec="rviz2" output="screen" name="rviz2"/>
+</launch>
+```
 
 
 
