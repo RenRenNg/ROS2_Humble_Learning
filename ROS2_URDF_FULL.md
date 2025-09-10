@@ -231,7 +231,24 @@ touch display.launch.xml
 Add TF  
 Add robotmodel > description topic > robot_description  
 Global options > Fixed Frame > base_footprint  
+##### **Inside display.launch.xml with rviz config set**  
+```xml
+<launch>
+  <arg name="model" default="$(find-pkg-share my_robot_description)/urdf/my_robot.urdf"/>
+  <arg name="rviz_config" default="$(find-pkg-share my_robot_description)/rviz/my_rviz_config.rviz"/>
 
+  <!-- Publish TF from the URDF -->
+  <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher">
+    <param name="robot_description" value="$(command 'xacro $(var model)')"/>
+  </node>
+
+  <!-- GUI for publishing joint states -->
+  <node pkg="joint_state_publisher_gui" exec="joint_state_publisher_gui" name="joint_state_publisher_gui"/>
+
+  <!-- Launch RViz with config -->
+  <node pkg="rviz2" exec="rviz2" output="screen" name="rviz2" args="-d $(var rviz_config)"/>
+</launch>
+```  
 
 
 
