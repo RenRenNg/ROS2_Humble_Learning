@@ -249,6 +249,12 @@ Global options > Fixed Frame > base_footprint
   <node pkg="rviz2" exec="rviz2" output="screen" name="rviz2" args="-d $(var rviz_config)"/>
 </launch>
 ```  
+## **Improve URDF with Xacro**  
+- Properties (variables)  
+- Macros (functions)  
+- Include URDF file inside another URDF  
+Make the URDF cleaner, more dynamic, modular, scalable
+
 
 
 
