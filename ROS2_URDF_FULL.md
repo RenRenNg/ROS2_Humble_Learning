@@ -269,8 +269,8 @@ Declare variables
 Use variable
 ```xacro
     ${base_length/3.0}
-```
-----------------------------------------------------
+```  
+##### **my_robot.udrf.xacro with xacro variables**  
 ```xacro
 <?xml version="1.0"?>
 <robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
