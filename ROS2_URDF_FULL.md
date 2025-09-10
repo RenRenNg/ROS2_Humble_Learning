@@ -260,7 +260,17 @@ Add xmlns:xacro="http://www.ros.org/wiki/xacro" into
 ```xml
 <robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 ```
-build > source > launch file
+build > source > launch file  
+### **Create Variables with Xacro Properties**  
+Declare variables  
+```xacro
+    <xacro:property name="base_length" value="0.6" />
+```
+Use variable
+```xacro
+    ${base_length/3.0}
+```
+
 
 
 
