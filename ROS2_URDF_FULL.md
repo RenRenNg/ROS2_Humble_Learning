@@ -254,8 +254,12 @@ Global options > Fixed Frame > base_footprint
 - Macros (functions)  
 - Include URDF file inside another URDF  
 Make the URDF cleaner, more dynamic, modular, scalable
-
-
+### **Make the URDF compatible with Xacro**  
+Rename my_robot.urdf file extension to my_robot.urdf.xacro
+Add xmlns:xacro="http://www.ros.org/wiki/xacro" into  
+```xml
+<robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+```
 
 
 
