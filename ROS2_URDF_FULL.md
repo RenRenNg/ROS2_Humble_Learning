@@ -559,6 +559,11 @@ What are you going to do:
 gazebo  
 Insert shapes > move axis > rotate > play with physics  
 Pause time, pause physics  
+### **How Gazebo work with ROS**   
+Gazebo is standalone physic tool not ROS specific  
+<img width="1147" height="429" alt="image" src="https://github.com/user-attachments/assets/017114c1-1acd-4fc9-95c5-6b7ef5fe71d0" />  
+gazebo_ros is the bridge between Gazebo and ROS.   
+Control plugins are the simulation of the hardware (e.g. camera, sensor plugins).   
 ## **Add a Sensor in Gazebo**  
 
 
