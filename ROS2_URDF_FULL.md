@@ -548,12 +548,15 @@ Inside any robot urdf file > add
 ```  
 ## **Simulate the robot in Gazebo**  
 Difference between Rviz and Gazebo:  
-- 3D visualisation/Debug tool (Rviz) vs Simulation Tool (Gazebo)   
+- 3D visualisation/Debug tool (Rviz) vs Simulation Tool (Gazebo)
+
 What are you going to do:   
 - Understand how Gazebo is integrated with ROS
 - Adapt the URDF for Gazebo
 - Add a Gazebo control plugin
-- Create a simulated world for the robot  
+- Create a simulated world for the robot
+### **Run gazebo**   
+Run
 ## **Add a Sensor in Gazebo**  
 
 
