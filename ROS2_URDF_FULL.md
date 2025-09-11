@@ -547,6 +547,13 @@ Inside any robot urdf file > add
 <mesh filename="package://turtlebot3_description/meshes/bases/waffle_base.stl" scale="0.001 0.001 0.001"/>
 ```  
 ## **Simulate the robot in Gazebo**  
+Difference between Rviz and Gazebo:  
+- 3D visualisation/Debug tool (Rviz) vs Simulation Tool (Gazebo)   
+What are you going to do:   
+- Understand how Gazebo is integrated with ROS
+- Adapt the URDF for Gazebo
+- Add a Gazebo control plugin
+- Create a simulated world for the robot  
 ## **Add a Sensor in Gazebo**  
 
 
