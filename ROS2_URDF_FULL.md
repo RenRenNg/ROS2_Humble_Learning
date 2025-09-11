@@ -385,6 +385,26 @@ Use variable
 
 </robot>
 ```
+### **Create Functions with Xacro Properties**  
+**FYI Dont optimisize too much. Unless the links is repeated 3 times or more.**  
+```xacro
+    <!--Create function for wheels-->
+    <xacro:macro name="wheel" params="prefix">
+        <link name="${prefix}_wheel">
+            <visual>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+                </geometry>
+                <origin xyz="0.0 0 0" rpy="${pi/2.0} 0 0" />
+                <material name="grey"/>
+            </visual>
+        </link>
+    </xacro:macro>
+    <!--Calling functions to create wheel links-->
+    <xacro:wheel prefix="right"/>
+    <xacro:wheel prefix="left"/>
+```
 asd
+
 
 
