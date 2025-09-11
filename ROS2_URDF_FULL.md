@@ -556,7 +556,9 @@ What are you going to do:
 - Add a Gazebo control plugin
 - Create a simulated world for the robot
 ### **Run gazebo**   
-Run
+gazebo  
+Insert shapes > move axis > rotate > play with physics  
+Pause time, pause physics  
 ## **Add a Sensor in Gazebo**  
 
 
