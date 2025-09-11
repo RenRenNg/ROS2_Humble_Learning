@@ -529,8 +529,8 @@ Create mobile_base.xacro and put the rest inside.
 <?xml version="1.0"?>
 <robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
     
-    <xacro:include filename="common_properties.xacro" />
-    <xacro:include filename="mobile_base.xacro" />
+    <xacro:include filename="common_properties.xacro" /> <!--Must be first-->
+    <xacro:include filename="mobile_base.xacro" /> <!--depend on common_properties-->
    
 </robot>
 ```
