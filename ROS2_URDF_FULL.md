@@ -568,16 +568,42 @@ Control plugins are the simulation of the hardware (e.g. camera, sensor plugins)
 ##### **common_properties.xacro**   
 Create functions for inertia  
 ```xacro
-<xacro:marco name="box_inertia" params="m l w h xyz rpy">
-        <inertial>
-            <origin xyz="${xyz}" rpy="${rpy}"/>
-            <mass value="${m}"
-            <inertia ixx="${m/12 * (h*h + l*l)}" ixy="0" ixz="0" iyy="${m/12 * (w*w + l*l)} iyz="0" izz=${m/12 * (w*w + h*h)} />
-        </inertial>
-    </xacro:marco>
+<xacro:macro name="box_inertia" params="m l w h xyz rpy">
+    <inertial>
+        <origin xyz="${xyz}" rpy="${rpy}"/>
+        <mass value="${m}"/>
+        <inertia
+        ixx="${m/12.0 * (w*w + h*h)}"
+        ixy="0"
+        ixz="0"
+        iyy="${m/12.0 * (l*l + h*h)}"
+        iyz="0"
+        izz="${m/12.0 * (l*l + w*w)}"/>
+    </inertial>
+    </xacro:macro>
 ```
 ##### **mobile_base.xacro**   
+```xacro
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="${base_length} ${base_width} ${base_height}"/>
+            </geometry>
+            <origin xyz="0 0 ${base_height/2.0}" rpy="0 0 0"/>
+            <material name="green"/>
+        </visual>
 
+        <!-- Physical properties -->
+        <xacro:box_inertia
+            m="5.0"
+            l="${base_length}"
+            w="${base_width}"
+            h="${base_height}"
+            xyz="0 0 ${base_height/2.0}"
+            rpy="0 0 0"/>
+    </link>
+```
+asd
 
 
 ## **Add a Sensor in Gazebo**  
