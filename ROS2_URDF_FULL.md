@@ -568,19 +568,47 @@ Control plugins are the simulation of the hardware (e.g. camera, sensor plugins)
 ##### **common_properties.xacro**   
 Create functions for inertia  
 ```xacro
-  <xacro:macro name="box_inertia" params="m l w h xyz rpy">
-    <inertial>
-      <origin xyz="${xyz}" rpy="${rpy}"/>
-      <mass value="${m}"/>
-      <inertia
-        ixx="${m/12.0 * (w*w + h*h)}"
-        ixy="0"
-        ixz="0"
-        iyy="${m/12.0 * (l*l + h*h)}"
-        iyz="0"
-        izz="${m/12.0 * (l*l + w*w)}"/>
-    </inertial>
-  </xacro:macro>
+    <xacro:macro name="box_inertia" params="m l w h xyz rpy">
+        <inertial>
+            <origin xyz="${xyz}" rpy="${rpy}"/>
+            <mass value="${m}"/>
+            <inertia
+                ixx="${m/12.0 * (w*w + h*h)}"
+                ixy="0"
+                ixz="0"
+                iyy="${m/12.0 * (l*l + h*h)}"
+                iyz="0"
+                izz="${m/12.0 * (l*l + w*w)}"/>
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="wheel_inertia" params="m r h xyz rpy">
+        <inertial>
+            <origin xyz="${xyz}" rpy="${rpy}"/>
+            <mass value="${m}"/>
+            <inertia
+                ixx="${1.0/12.0*m * (3*r*r + h*h)}"
+                ixy="0"
+                ixz="0"
+                iyy="${1.0/12.0*m * (3*r*r + h*h)}"
+                iyz="0"
+                izz="${1.0/2.0*m*r*r}"/>
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="caster_inertia" params="m r xyz rpy">
+        <inertial>
+            <origin xyz="${xyz}" rpy="${rpy}"/>
+            <mass value="${m}"/>
+            <inertia
+                ixx="${2.0/5.0 * m * r * r}"
+                ixy="0"
+                ixz="0"
+                iyy="${2.0/5.0 * m * r * r}"
+                iyz="0"
+                izz="${2.0/5.0 * m * r * r}"/>
+        </inertial>
+    </xacro:macro>
 ```
 ##### **mobile_base.xacro**   
 ```xacro
