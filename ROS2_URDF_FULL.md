@@ -564,6 +564,22 @@ Gazebo is standalone physic tool not ROS specific
 <img width="1147" height="429" alt="image" src="https://github.com/user-attachments/assets/017114c1-1acd-4fc9-95c5-6b7ef5fe71d0" />  
 gazebo_ros is the bridge between Gazebo and ROS.   
 Control plugins are the simulation of the hardware (e.g. camera, sensor plugins).   
+### **Add Inertia Tags in URDF**  
+##### **common_properties.xacro**   
+Create functions for inertia  
+```xacro
+<xacro:marco name="box_inertia" params="m l w h xyz rpy">
+        <inertial>
+            <origin xyz="${xyz}" rpy="${rpy}"/>
+            <mass value="${m}"
+            <inertia ixx="${m/12 * (h*h + l*l)}" ixy="0" ixz="0" iyy="${m/12 * (w*w + l*l)} iyz="0" izz=${m/12 * (w*w + h*h)} />
+        </inertial>
+    </xacro:marco>
+```
+##### **mobile_base.xacro**   
+
+
+
 ## **Add a Sensor in Gazebo**  
 
 
