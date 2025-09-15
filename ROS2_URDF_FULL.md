@@ -692,7 +692,7 @@ Create a new file "mobile_base_gazebo.xacro"
 ```
 Add `<xacro:include filename="mobile_base_gazebo.xacro" />` in my_robot.urdf.xacro  
 ### **Add a Gazebo Plugin to Control the robot**   
-
+Go to https://github.com/ros-simulation/gazebo_ros_pkgs/tree/ros2/gazebo_plugins/include/gazebo_plugins > navigate to gazebo_plugins/include/gazebo_plugins/gazebo_ros_diff_drive.hpp > copy the usage example and paste inside "mobile_base_gazebo.xacro  
 asd  
 
 
