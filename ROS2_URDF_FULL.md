@@ -730,6 +730,33 @@ Add
 In gazebo > Insert > Click model.gazebo > CLick object and place  
 In gazebo > Building editor > Build walls > Save  
 In gazebo > File > Save as > my_world.world  
+### **Launch the robot in the world**   
+##### **my_robot_gazebo.launch.xml**  
+```xml
+<launch>
+  <arg name="model" default="$(find-pkg-share my_robot_description)/urdf/my_robot.urdf.xacro"/>
+  <arg name="rviz_config" default="$(find-pkg-share my_robot_bringup)/rviz/my_rviz_config.rviz"/>
+
+  <!-- Publish TF from the URDF -->
+  <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher">
+    <param name="robot_description" value="$(command 'xacro $(var model)')"/>
+  </node>
+  
+  <!--Run Gazebo-->
+  <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py">
+    <arg name="world" value="$(find-pkg-share my_robot_bringup)/worlds/my_world.world"/>
+  </include>
+  
+  <!-- Spawn my_robot into the world -->
+  <node pkg="gazebo_ros" exec="spawn_entity.py"
+        args="-topic robot_description -entity my_robot"/>
+
+  <!-- Launch RViz with config -->
+  <node pkg="rviz2" exec="rviz2" output="screen" 
+        args="-d $(var rviz_config)"/>
+</launch>
+```
+
 asd  
 
 
