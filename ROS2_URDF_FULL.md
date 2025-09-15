@@ -667,7 +667,23 @@ OR
         args="-d $(var rviz_config)"/>
 </launch>
 ```
+### **Fixing the Inertia Values**  
+Robot is drifting backwards  
+Increase Inertia > Add a "2*" to the parameter l,w,h,r.  
+### **Fixing the colours in Gazebo**  
+For Gazebo, the material use a different tag, gazebo tag.  
+Create a new file "mobile_base_gazebo.xacro"  
+```xacro
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <gazebo reference="base_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+</robot>
+```
+Add `<xacro:include filename="mobile_base_gazebo.xacro" />` in my_robot.urdf.xacro  
 
 asd  
 
