@@ -693,6 +693,39 @@ Create a new file "mobile_base_gazebo.xacro"
 Add `<xacro:include filename="mobile_base_gazebo.xacro" />` in my_robot.urdf.xacro  
 ### **Add a Gazebo Plugin to Control the robot**   
 Go to https://github.com/ros-simulation/gazebo_ros_pkgs/tree/ros2/gazebo_plugins/include/gazebo_plugins > navigate to gazebo_plugins/include/gazebo_plugins/gazebo_ros_diff_drive.hpp > copy the usage example and paste inside "mobile_base_gazebo.xacro  
+##### **mobile_base_gazebo.xacro**  
+Add
+```xacro
+    <gazebo>
+        <plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
+
+            <!-- Update rate in Hz -->
+            <update_rate>50</update_rate>
+
+            <!-- wheels -->
+            <!-- Add the wheel joints here -->
+            <left_joint>base_left_wheel_joint</left_joint>
+            <right_joint>base_right_wheel_joint</right_joint>
+
+            <!-- kinematics -->
+            <!--Dist between center of left to right wheel-->
+            <wheel_separation>0.45</wheel_separation> 
+            <!--Twice the wheel radius-->
+            <wheel_diameter>0.2</wheel_diameter> 
+
+            <!-- output -->
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
+
+            <odometry_topic>odom</odometry_topic>
+            <odometry_frame>odom</odometry_frame>
+            <!--replace chassis as base_footprint-->
+            <robot_base_frame>base_footprint</robot_base_frame> 
+
+        </plugin>
+    </gazebo>
+```  
 asd  
 
 
