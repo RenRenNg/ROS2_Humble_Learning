@@ -643,6 +643,30 @@ In between visual tag and inertia tag (xacro)
 ros2 run robot_state_publisher robot_state_publisher --ros-args -p robot_description:="$(xacro my_robot.urdf.xacro)" #robot state publisher   
 ros2 launch gazebo_ros gazebo.launch.py #Launch gazebo  
 ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity my_robot #Spawn robot  
+OR  
+### **Launch File to Start the Robot in Gazebo**  
+```xml
+<launch>
+  <arg name="model" default="$(find-pkg-share my_robot_description)/urdf/my_robot.urdf.xacro"/>
+  <arg name="rviz_config" default="$(find-pkg-share my_robot_bringup)/rviz/my_rviz_config.rviz"/>
+
+  <!-- Publish TF from the URDF -->
+  <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher">
+    <param name="robot_description" value="$(command 'xacro $(var model)')"/>
+  </node>
+  
+  <!--Run Gazebo-->
+  <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py"/>
+  
+  <!-- Spawn my_robot into the world -->
+  <node pkg="gazebo_ros" exec="spawn_entity.py"
+        args="-topic robot_description -entity my_robot"/>
+
+  <!-- Launch RViz with config -->
+  <node pkg="rviz2" exec="rviz2" output="screen" 
+        args="-d $(var rviz_config)"/>
+</launch>
+```
 
 
 asd  
