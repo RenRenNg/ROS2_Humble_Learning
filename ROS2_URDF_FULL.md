@@ -631,7 +631,15 @@ Create functions for inertia
       rpy="0 0 0"/>
   </link>
 ```
-asd
+### **Add Collision Tags in URDF**   
+In between visual tag and inertia tag (xacro)  
+```xacro
+            <collision>
+                <geometry><cylinder radius="${wheel_radius}" length="${wheel_length}"/></geometry>
+                <origin xyz="0 0 0" rpy="${pi/2.0} 0 0"/>
+            </collision>
+```  
+asd  
 
 
 ## **Add a Sensor in Gazebo**  
