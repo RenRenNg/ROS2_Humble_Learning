@@ -725,7 +725,10 @@ Add
 
         </plugin>
     </gazebo>
-```  
+```
+### **Create a World in Gazebo**   
+In gazebo > Insert > Click model.gazebo > CLick object and place  
+In gazebo > Building editor > Build walls > Save  
 asd  
 
 
