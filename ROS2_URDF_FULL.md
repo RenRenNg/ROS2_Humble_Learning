@@ -1,6 +1,13 @@
 # **ROS2 - TF|URDF|RViz|Gazebo**  
 https://wiki.ros.org/urdf/XML #Useful doc on urdf properties  
 ## **Rviz2 Notes**  
+https://wiki.ros.org/urdf/XML/link #URDF Link Doc  
+https://wiki.ros.org/urdf/XML/joint #URDF Joint Doc  
+https://wiki.ros.org/urdf/Tutorials/Adding%20Physical%20and%20Collision%20Properties%20to%20a%20URDF%20Model #URDF Inertia Doc  
+https://en.wikipedia.org/wiki/List_of_moments_of_inertia#List_of_3D_inertia_tensors #List of 3D Inertia  
+https://classic.gazebosim.org/tutorials?tut=ros_gzplugins #Gazebo Plugins Doc  
+https://github.com/ros-simulation/gazebo_ros_pkgs/tree/ros2/gazebo_plugins/include/gazebo_plugins #Gazebo Github
+
 ### **Axes**  
 x axis: red (forward)  
 y axis: green (left)  
@@ -684,6 +691,7 @@ Create a new file "mobile_base_gazebo.xacro"
 </robot>
 ```
 Add `<xacro:include filename="mobile_base_gazebo.xacro" />` in my_robot.urdf.xacro  
+### **Add a Gazebo Plugin to Control the robot**   
 
 asd  
 
