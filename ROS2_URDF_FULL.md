@@ -755,11 +755,7 @@ In gazebo > File > Save as > my_world.world
   <node pkg="rviz2" exec="rviz2" output="screen" 
         args="-d $(var rviz_config)"/>
 </launch>
-```
-
-asd  
-
-
+```  
 ## **Add a Sensor in Gazebo**  
 
 
