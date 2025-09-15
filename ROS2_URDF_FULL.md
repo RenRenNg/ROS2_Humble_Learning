@@ -729,6 +729,7 @@ Add
 ### **Create a World in Gazebo**   
 In gazebo > Insert > Click model.gazebo > CLick object and place  
 In gazebo > Building editor > Build walls > Save  
+In gazebo > File > Save as > my_world.world  
 asd  
 
 
