@@ -757,6 +757,13 @@ In gazebo > File > Save as > my_world.world
 </launch>
 ```  
 ## **Add a Sensor in Gazebo**  
+- Add camera to the URDF
+- Configure a Gazebo Plugin
 
+Quick Intro, focus on:
+- The process
+- Giving you the right resources
+
+### **Add a Camera to the URDF**   
 
 
