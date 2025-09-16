@@ -765,5 +765,47 @@ Quick Intro, focus on:
 - Giving you the right resources
 
 ### **Add a Camera to the URDF**   
+Create "camera.xacro" file under urdf  
+```xacro
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Camera dimensions -->
+    <xacro:property name="camera_length" value="0.01"/>
+    <xacro:property name="camera_width"  value="0.1"/>
+    <xacro:property name="camera_height" value="0.1"/>
+
+    <link name="camera_link">
+        <visual>
+            <geometry>
+                <box size="${camera_length} ${camera_width} ${camera_height}"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="${camera_length} ${camera_width} ${camera_height}"/>
+            </geometry>
+        </collision>
+        <xacro:box_inertia 
+            m="0.1" 
+            l="${camera_length}" 
+            w="${camera_width}" 
+            h="${camera_height}"
+            xyz="0 0 0" 
+            rpy="0 0 0"/>
+    </link>
+    
+    <joint name="base_camera_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="camera_link"/>
+        <origin xyz="${(base_length+camera_length)/2} 0 ${base_height/2}" rpy="0 0 0"/>
+    </joint>
+
+</robot>
+```
+Add `<xacro:include filename="camera.xacro" />` inside my_robot.urdf.xacro file.  
+### **Add a Gazebo Plugin for Camera**   
+
 
 
