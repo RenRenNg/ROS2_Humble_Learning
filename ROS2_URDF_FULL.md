@@ -860,6 +860,23 @@ Add gazebo tag into "camera.xacro"
     </gazebo>
 </robot>
 ```
+### **Quick fix for camera work with ROS**   
+Using gazebo camera with rviz + opencv frame inconsistentency  
+Create a new joint called camera_optical_joint  
+Add  
+```xacro
+<link name="camera_link_optical">
+    </link>
+
+    <joint name="camera_optical_joint" type="fixed">
+        <!-- these values have to be these values otherwise the gazebo camera
+            image won't be aligned properly with the frame it is supposedly
+            originating from -->
+        <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+        <parent link="camera_link"/>
+        <child link="camera_link_optical"/>
+    </joint>
+```   
 asd
 
 
