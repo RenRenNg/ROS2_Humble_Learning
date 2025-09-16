@@ -865,7 +865,7 @@ Using gazebo camera with rviz + opencv frame inconsistentency
 Create a new joint called camera_optical_joint  
 Add  
 ```xacro
-<link name="camera_link_optical">
+    <link name="camera_link_optical">
     </link>
 
     <joint name="camera_optical_joint" type="fixed">
@@ -876,6 +876,20 @@ Add
         <parent link="camera_link"/>
         <child link="camera_link_optical"/>
     </joint>
+
+    <gazebo reference="camera_link">
+        <material>Gazebo/Red</material>
+        <sensor name="camera_sensor" type="camera">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>10.0</update_rate>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                
+                <frame_name>camera_link_optical</frame_name>
+
+            </plugin>
+        </sensor>
+    </gazebo>
 ```   
 asd
 
