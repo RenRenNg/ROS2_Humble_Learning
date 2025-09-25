@@ -755,7 +755,9 @@ In gazebo > File > Save as > my_world.world
   <node pkg="rviz2" exec="rviz2" output="screen" 
         args="-d $(var rviz_config)"/>
 </launch>
-```  
+```
+<img width="2424" height="1086" alt="image" src="https://github.com/user-attachments/assets/29bd199a-e0ba-40f3-b602-3102efb72469" />
+
 ## **Add a Sensor in Gazebo**  
 - Add camera to the URDF
 - Configure a Gazebo Plugin
