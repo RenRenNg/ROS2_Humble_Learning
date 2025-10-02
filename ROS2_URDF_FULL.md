@@ -893,6 +893,153 @@ Add
         </sensor>
     </gazebo>
 ```   
-asd
+## **Final Project: Add an arm onto the robot**  
+##### **arm.xacro**  
+```xml
+<?xml version="1.0"?>
+<robot name="simple_arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <!-- Properties -->
+  <xacro:property name="arm_base_length" value="0.1"/>
+  <xacro:property name="arm_base_width"  value="0.1"/>
+  <xacro:property name="arm_base_height" value="0.02"/>
+  <xacro:property name="forearm_radius"  value="0.02"/>
+  <xacro:property name="forearm_length"  value="0.3"/>
+  <xacro:property name="hand_radius"  value="0.02"/>
+  <xacro:property name="hand_length"  value="0.3"/>
+
+  <link name="arm_base_link">
+    <visual>
+      <geometry>
+        <box size="${arm_base_length} ${arm_base_width} ${arm_base_height}"/>
+      </geometry>
+      <origin xyz="0 0 ${arm_base_height/2.0}" rpy="0 0 0"/>
+      <material name="orange"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="${arm_base_length} ${arm_base_width} ${arm_base_height}"/>
+      </geometry>
+      <origin xyz="0 0 ${arm_base_height/2.0}" rpy="0 0 0"/>
+    </collision>
+    <xacro:box_inertia
+            m="0.5"
+            l="${2*arm_base_length}"
+            w="${2*arm_base_width}"
+            h="${2*arm_base_height}"
+            xyz="0 0 ${arm_base_height/2.0}"
+            rpy="0 0 0"/>
+  </link>
+
+  <link name="forearm_link">
+    <visual>
+      <geometry>
+        <cylinder radius="${forearm_radius}" length="${forearm_length}"/>
+      </geometry>
+      <origin xyz="0 0 ${forearm_length/2.0}" rpy="0 0 0"/>
+      <material name="yellow"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="${forearm_radius}" length="${forearm_length}"/>
+      </geometry>
+      <origin xyz="0 0 ${forearm_length/2.0}" rpy="0 0 0"/>
+    </collision>
+    <xacro:wheel_inertia
+                m="0.3"
+                r="${2*forearm_radius}"
+                l="${2*forearm_length}"
+                xyz="0 0 ${forearm_length/2.0}"
+                rpy="${pi/2.0} 0 0"/>
+  </link>
+
+  <link name="hand_link">
+    <visual>
+      <geometry>
+        <cylinder radius="${hand_radius}" length="${hand_length}"/>
+      </geometry>
+      <origin xyz="0 0 ${hand_length/2.0}" rpy="0 0 0"/>
+      <material name="orange"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="${hand_radius}" length="${hand_length}"/>
+      </geometry>
+      <origin xyz="0 0 ${hand_length/2.0}" rpy="0 0 0"/>
+    </collision>
+    <xacro:wheel_inertia
+                m="0.3"
+                r="${2*hand_radius}"
+                l="${2*hand_length}"
+                xyz="0 0 ${hand_length/2.0}"
+                rpy="${pi/2.0} 0 0"/>
+  </link>
+
+  <joint name="arm_base_forearm_joint" type="revolute">
+    <parent link="arm_base_link"/>
+    <child  link="forearm_link"/>
+    <origin xyz="0 0 ${arm_base_height}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="${pi/2}" effort="10" velocity="1.0"/>
+    <dynamics friction="0.05" damping="0.1" />
+  </joint>
+
+  <joint name="forearm_hand_joint" type="revolute">
+    <parent link="forearm_link"/>
+    <child  link="hand_link"/>
+    <origin xyz="0 0 ${forearm_length}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="${pi/2}" effort="10" velocity="1.0"/>
+    <dynamics friction="0.05" damping="0.1" />
+  </joint>
+
+</robot>
+```
+##### **arm_gazebo.xacro**  
+```xml
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <gazebo reference="arm_base_link">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <gazebo reference="forearm_link">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+
+    <gazebo reference="hand_link">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="joint_state_publisher_controller" filename="libgazebo_ros_joint_state_publisher.so">
+            <!-- Update rate in Hertz -->
+            <update_rate>10</update_rate>
+            <!-- Name of joints in the model whose states will be published. -->
+            <joint_name>arm_base_forearm_joint</joint_name>
+            <joint_name>forearm_hand_joint</joint_name>
+        </plugin>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="joint_pose_trajectory_controller" filename="libgazebo_ros_joint_pose_trajectory.so">
+            <!-- Update rate in Hz -->
+            <update_rate>2</update_rate>
+        </plugin>
+    </gazebo>
+</robot>
+```
+## **Conclusion**  
+- TF introduction
+- Create URDF with links and joints
+- Robot description package with config and launch file
+- Improve URDF with Xacro - properties, macros
+- Add inertial and collision tags in URDF
+- Gazebo Plugins
+- Spawn the robot in Gazebo
+- Robot bringup package with Gazebo launch file
+- Create a world with objects and walls
+- Add a sensor to the robot
+- Project: add a robotic arm on top of the robot
 
