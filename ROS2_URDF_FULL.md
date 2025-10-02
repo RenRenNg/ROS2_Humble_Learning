@@ -1061,4 +1061,14 @@ Add
 - Create a world with objects and walls
 - Add a sensor to the robot
 - Project: add a robotic arm on top of the robot
+## **WHat to do next?**  
+- Re-watch TF section
+- Do the complete project again on your own
+
+Then:
+- Navigation stack for mobile robots
+- Moveit for robotic arms
+- ros2_control
+- More advanced ROS 2 concepts and clean code
+
 
