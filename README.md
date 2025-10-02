@@ -53,4 +53,13 @@ Navigation will cover:
 
 Source: https://www.youtube.com/watch?v=idQb2pB-h2Q&list=PL2UjcOn0MjffcDh_dUO8EbAlwLfJOdF1b&index=4
 
-# ROS2 Humble Learning Full Course
+# ROS2 Humble Learning Full Course  
+## ROS2 for Beginners(ROS Jazzy - 2025)
+https://www.udemy.com/course/ros2-for-beginners/?couponCode=MT251002G4  
+## ROS 2 for Beginners Level 2 - TF | URDF | RViz | Gazebo
+https://www.udemy.com/course/ros2-tf-urdf-rviz-gazebo/?couponCode=MT251002G4  
+## ROS 2 for Beginners Level 3 - Advanced Concepts
+https://www.udemy.com/course/ros2-advanced-core-concepts/?couponCode=MT251002G4  
+
+
+
