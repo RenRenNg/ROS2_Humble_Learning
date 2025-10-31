@@ -6,4 +6,6 @@ FYI: Change of Middleware > sudo apt install ros-$ROS_DISTRO-rmw-cyclonedds-cpp 
 sudo apt install ros-humble-moveit  
 ## **Create a URDF for a 6-axis Robotic Arm**  
 ### **Create a Description package**  
+Create ros2_ws  
+Create my_robot_description inside src folder of ros2_ws
 cd ~/ros2_ws/src/my_robot_description  
