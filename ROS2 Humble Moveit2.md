@@ -9,8 +9,8 @@ sudo apt install ros-humble-moveit
 (If needed) Create ros2_ws: cd > mkdir ros2_ws > cd ros2_ws/ > mkdir src > colcon build > gedit ~/.bashrc > source ~/ros2_ws/install/setup.bash > save   
 (If needed) Create my_robot_description inside src folder of ros2_ws: cd ~/ros2_ws/src/ > ros2 pkg create my_robot_description > cd my_robot_description > rm -r include/ src/ > mkdir urdf launch rviz > cd .. > code . > CMakeList.txt file  
 ##### **Inside CMakeList.txt**  
-remove BUILD_TESTING code block
-add  
+remove BUILD_TESTING code block  
+add    
 ```
 install(
   DIRECTORY urdf launch rviz
