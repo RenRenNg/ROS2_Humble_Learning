@@ -4,3 +4,4 @@
 Go to: https://moveit.ai/install-moveit2/binary/  
 FYI: Change of Middleware > sudo apt install ros-$ROS_DISTRO-rmw-cyclonedds-cpp > gedit ~/.bashrc > copy and paste export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp > above the humble source command code.  
 sudo apt install ros-humble-moveit  
+## **Create a URDF for a 60axis Robotic Arm**  
