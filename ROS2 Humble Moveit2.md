@@ -159,5 +159,7 @@ cd ~/ros2_ws/src/my_robot_description/urdf > touch arm1.urdf
     </joint>
 
 </robot>
-```
+```  
+View in rviz  
+ros2 launch urdf_tutorial display.launch.py model:=/home/aaron/ros2_ws/src/my_robot_description/urdf/arm1.urdf  
 
